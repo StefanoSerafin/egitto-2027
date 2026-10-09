@@ -336,7 +336,7 @@ def main():
     open(os.path.join(SITO, "css", "giorno.css"), "w", encoding="utf-8").write(
         "/* Generato da tools/costruisci.py a partire da infografiche/genera.py: non modificare a mano. */\n" + G.CSS % G.SABBIA)
     file = ["./", "index.html", "manifest.json", "icona-180.png", "css/giorno.css", "css/app.css", "js/app.js", "js/mappa.js",
-            "data/giorni.js", "data/extra.js"] + sorted("img/" + f for f in os.listdir(os.path.join(SITO, "img")) if f.endswith(".jpg"))
+            "data/giorni.js", "data/extra.js", "data/schede.js"] + sorted("img/" + f for f in os.listdir(os.path.join(SITO, "img")) if f.endswith(".jpg"))
     sw = open(os.path.join(SITO, "tools", "sw.modello.js"), encoding="utf-8").read()
     sw = sw.replace("__VERSIONE__", time.strftime("%Y%m%d-%H%M%S")).replace("__FILE__", json.dumps(file, ensure_ascii=False))
     open(os.path.join(SITO, "sw.js"), "w", encoding="utf-8").write(sw)

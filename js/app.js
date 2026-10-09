@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     if (r.grafico) h += r.grafico;
     if (r.numero) h += '<p class="numero"><b>' + r.numero[0] + '</b><span>' + r.numero[1] + '</span></p>';
-    if (r.wiki.length) h += '<p class="wiki">Su Wikipedia: ' + r.wiki.join(', ') + '</p>';
+    if (r.wiki.length) h += '<p class="wiki">Approfondisci: ' + r.wiki.join(', ') + '</p>';
     return h + '</div></article>';
   }
 
@@ -86,10 +86,39 @@ document.addEventListener('DOMContentLoaded', function () {
       + '<div class="loc-area" id="locArea"><img src="img/panoramica.jpg" alt="Locandina del viaggio: mappa dell\'Egitto con le tappe, la fascia dell\'eclissi e i giorni"></div>';
   }
 
+  // Scheda di una voce di Wikipedia, mostrata prima di uscire dall'app. I dati sono in data/schede.js.
+  function vistaScheda(lingua, titoloCodificato) {
+    let titolo = titoloCodificato;
+    try { titolo = decodeURIComponent(titoloCodificato); } catch (e) { /* si tiene il testo com'è */ }
+    titolo = titolo.replace(/_/g, ' ');
+    const s = (typeof SCHEDE !== 'undefined') ? SCHEDE[lingua + ':' + titolo] : null;
+    const url = s ? s.url : 'https://' + lingua + '.wikipedia.org/wiki/' + titoloCodificato;
+    let h = '<button type="button" class="torna indietro" id="indietro">Indietro</button>';
+    if (!s) {
+      return h + '<header><h1>' + titolo + '</h1><p class="filo">Per questa voce non c\'è una scheda preparata.</p></header>'
+        + '<p><a class="bottone esterno" href="' + url + '" target="_blank" rel="noopener">Apri su Wikipedia</a></p>';
+    }
+    h += '<header>' + (s.descr ? '<p class="giorno">' + s.descr + '</p>' : '') + '<h1>' + s.titolo + '</h1></header>';
+    if (s.img) h += '<figure class="foto scheda-foto"><img src="' + s.img + '" alt="" onerror="this.parentNode.style.display=\'none\'"></figure>';
+    if (s.fatti.length) {
+      h += '<dl class="fatti">' + s.fatti.map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>'; }).join('') + '</dl>';
+    }
+    if (s.punti.length) {
+      h += '<section class="sezione"><h2>In breve</h2><ul class="voci numerate">' + s.punti.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul></section>';
+    }
+    if (s.dove.length) {
+      h += '<section class="sezione"><h2>Nel viaggio</h2><ul class="elenco-semplice">' + s.dove.map(function (d) { return '<li><a href="' + d[1] + '">' + d[0] + '</a></li>'; }).join('') + '</ul></section>';
+    }
+    h += '<p style="margin-top:28px"><a class="bottone esterno" href="' + url + '" target="_blank" rel="noopener">Continua su Wikipedia</a></p>'
+      + '<p class="fonte">' + (lingua === 'en' ? 'Voce disponibile solo in inglese. ' : '') + 'Testo e dati presi da Wikipedia e Wikidata (licenza CC BY-SA) il ' + SCHEDE_DATA
+      + ', riassunti in automatico: possono esserci tagli o imprecisioni.' + (s.img ? ' L\'immagine arriva da Wikimedia e si vede solo con la rete.' : '') + '</p>';
+    return h;
+  }
+
   function voci(lista, fn) { return '<ul class="voci">' + lista.map(function (v) { return '<li>' + fn(v) + '</li>'; }).join('') + '</ul>'; }
 
   function vistaBasi() {
-    function wiki(v) { return '<span class="wiki-riga">Su Wikipedia: ' + v[v.length - 1] + '</span>'; }
+    function wiki(v) { return '<span class="wiki-riga">Approfondisci: ' + v[v.length - 1] + '</span>'; }
     return '<header><h1>Le basi</h1><p class="filo">Quello che serve per orientarsi fra tremila anni di storia, prima di entrare nel primo tempio.</p></header>'
       + '<section class="sezione"><h2>Linea del tempo</h2>' + voci(BASI.tempo, function (v) { return '<b>' + v[0] + '</b><em>' + v[1] + '</em><span>' + v[2] + ' Lo vedrete a: ' + v[3] + '.</span>' + wiki(v); }) + '</section>'
       + '<section class="sezione"><h2>I sovrani da riconoscere</h2>' + voci(BASI.sovrani, function (v) { return '<b>' + v[0] + '</b><em>' + v[1] + '</em><span>' + v[2] + '</span>' + wiki(v); }) + '</section>'
@@ -160,11 +189,13 @@ document.addEventListener('DOMContentLoaded', function () {
   function mostra() {
     const r = (location.hash || '#/').slice(1);
     const m = r.match(/^\/giorno\/(\d+)/);
+    const sc = r.match(/^\/scheda\/(it|en)\/(.+)$/);
     let scheda = 'giorni';
     EgittoMappa.chiudi();
     tavolozza(PAL_BASE);
     vista.className = 'pagina';
     if (m) vista.innerHTML = vistaGiorno(Number(m[1]));
+    else if (sc) { scheda = ''; vista.innerHTML = vistaScheda(sc[1], sc[2]); }
     else if (r === '/locandina') { vista.className = 'pagina piena'; vista.innerHTML = vistaLocandina(); }
     else if (r === '/mappa') { scheda = 'mappa'; vista.className = 'pagina piena'; vista.innerHTML = vistaMappa(); }
     else if (r === '/basi') { scheda = 'basi'; vista.innerHTML = vistaBasi(); }
@@ -181,6 +212,20 @@ document.addEventListener('DOMContentLoaded', function () {
       EgittoMappa.apri(document.getElementById('mappa'), document.getElementById('chips'));
     }
   }
+
+  // I link a Wikipedia aprono prima la scheda interna; da lì il pulsante porta alla voce completa
+  vista.addEventListener('click', function (e) {
+    if (e.target.id === 'indietro') {
+      if (window.history.length > 1) window.history.back(); else location.hash = '#/';
+      return;
+    }
+    const a = e.target.closest ? e.target.closest('a') : null;
+    if (!a || a.classList.contains('esterno')) return;
+    const w = (a.getAttribute('href') || '').match(/^https:\/\/(it|en)\.wikipedia\.org\/wiki\/(.+)$/);
+    if (!w) return;
+    e.preventDefault();
+    location.hash = '#/scheda/' + w[1] + '/' + w[2];
+  });
 
   vista.addEventListener('click', function (e) {
     if (e.target.parentNode && e.target.parentNode.id === 'locArea') e.target.parentNode.classList.toggle('grande');

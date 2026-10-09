@@ -21,6 +21,13 @@ Per cambiare un testo: modificarlo in `genera.py` (o in `costruisci.py` per gior
 Info), poi lanciare `python3 ../infografiche/genera.py && python3 tools/costruisci.py`.
 `css/giorno.css`, `data/*.js` e `sw.js` sono generati: non modificarli a mano.
 
+## Schede prima dei link a Wikipedia
+Ogni link a Wikipedia dell'app apre prima una scheda interna (`#/scheda/it/Titolo`) con descrizione, immagine,
+dati, punti chiave e i giorni in cui la voce compare; da lì il pulsante porta alla voce completa.
+I contenuti sono in `data/schede.js`, generato da `tools/schede_wikipedia.py` (richiede la rete: legge
+Wikipedia e Wikidata, non scrive testi a mano). Va rilanciato dopo `costruisci.py` quando si aggiungono o
+cambiano link. Le immagini non sono nel repo: l'app le carica da Wikimedia quando c'è la rete.
+
 ## File scritti a mano
 - `index.html` — ossatura e barra delle schede (Giorni, Mappa, Basi, Outfit, Info).
 - `css/app.css` — solo le parti dell'app (schede, elenco giorni, mappa, liste).

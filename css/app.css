@@ -100,3 +100,13 @@ a { color: var(--tinta); }
   height: calc(100dvh - 60px - 64px - env(safe-area-inset-bottom) - env(safe-area-inset-top)); }
 .loc-area img { display: block; height: 100%; width: auto; max-width: none; }
 .loc-area.grande img { height: 220%; }
+
+/* scheda di una voce di Wikipedia */
+button.indietro { font: inherit; font-size: 16px; font-weight: 600; background: none; border: 0; padding: 10px 0; color: var(--tinta); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.scheda-foto img { width: 100%; max-height: 360px; object-fit: cover; object-position: center; }
+.fatti { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; margin: 18px 0 0; }
+.fatti div { padding: 10px 0; border-top: 1px solid var(--tinta-chiaro); }
+.fatti dt { font-size: 13px; color: var(--tenue); }
+.fatti dd { margin: 2px 0 0; font-family: var(--display); font-size: 21px; line-height: 1.2; color: var(--accento); overflow-wrap: anywhere; }
+.voci.numerate li { color: var(--inchiostro); }
+.bottone { display: block; text-align: center; padding: 15px 18px; background: var(--inchiostro); color: var(--carta); text-decoration: none; font-weight: 600; font-size: 17px; }
