@@ -181,6 +181,18 @@ BASI_WIKI = {
  "Obelisco": [W("Obelisco")], "Cartiglio": [W("Cartiglio (Antico Egitto)", "Cartiglio")], "Nilometro": [W("Nilometro")],
  "Levata eliaca": [W("Levata eliaca")], "Feluca": [W("Feluca (imbarcazione)", "Feluca")],
 }
+# linea del tempo grafica: nome del periodo -> (anno di inizio, anno di fine, foto in img/, colore, giorni in cui lo si incontra)
+# anni negativi = avanti Cristo; le foto sono quelle già usate nelle giornate
+TEMPO_GRAFICO = {
+ "Unificazione": (-3100, -2686, "g4-memphis", "#7A4B2A", [4]),
+ "Antico Regno": (-2686, -2181, "g3-chefren", "#A8771A", [3, 4]),
+ "Medio Regno": (-2055, -1650, "g11-qarun", "#2F6B3F", [5, 11]),
+ "Nuovo Regno": (-1550, -1069, "g10-maggiore", "#9A3B1E", [5, 7, 10]),
+ "Epoca tolemaica": (-332, -30, "g8-edfu", "#4D6A2A", [8, 9]),
+ "Epoca romana e bizantina": (-30, 641, "g9-philae", "#1B5E7A", [7, 9]),
+ "Epoca islamica": (641, 1805, "g2-cittadella", "#1F6B55", [2]),
+ "Egitto moderno": (1805, 2027, "g9-diga", "#1F3A6E", [2, 9]),
+}
 INFO = {
  "notti": [("28–31 luglio", "4 notti", "Il Cairo, hotel in centro"), ("1–5 agosto", "5 notti", "Nave MS Royal Ruby II; le prime due ferma a Luxor"),
            ("6 agosto", "1 notte", "Il Cairo, dopo Abu Simbel"), ("7 agosto", "1 notte", "El Fayoum"), ("8 agosto", "1 notte", "El Fayoum o Il Cairo: da confermare"), ("9 agosto", "forse in volo", "Rientro: arrivo in Italia il 9 sera o il 10, secondo gli orari")],
@@ -311,7 +323,12 @@ def basi_con_wiki():
         out[sezione] = []
         for v in voci:
             assert v[0] in BASI_WIKI, "manca il link Wikipedia per: " + v[0]
-            out[sezione].append(list(v) + [", ".join(BASI_WIKI[v[0]])])
+            if sezione == "tempo":
+                da, a, img, colore, giorni = TEMPO_GRAFICO[v[0]]
+                out[sezione].append({"nome": v[0], "date": v[1], "testo": v[2], "dove": v[3], "da": da, "a": a, "img": "img/" + img + ".jpg",
+                                     "colore": colore, "giorni": giorni, "wiki": ", ".join(BASI_WIKI[v[0]])})
+            else:
+                out[sezione].append(list(v) + [", ".join(BASI_WIKI[v[0]])])
     return out
 
 

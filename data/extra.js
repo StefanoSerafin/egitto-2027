@@ -1,61 +1,124 @@
 const BASI = {
  "tempo": [
-  [
-   "Unificazione",
-   "c. 3100 a.C.",
-   "Alto e Basso Egitto diventano un regno, capitale Memphis.",
-   "Memphis",
-   "<a href=\"https://it.wikipedia.org/wiki/Periodo_Protodinastico_(Egitto)\" target=\"_blank\" rel=\"noopener\">Periodo protodinastico</a>, <a href=\"https://it.wikipedia.org/wiki/Narmer\" target=\"_blank\" rel=\"noopener\">Narmer</a>"
-  ],
-  [
-   "Antico Regno",
-   "c. 2686–2181 a.C.",
-   "L'età delle piramidi.",
-   "Saqqara, Dahshur, Giza",
-   "<a href=\"https://it.wikipedia.org/wiki/Antico_Regno_(Egitto)\" target=\"_blank\" rel=\"noopener\">Antico Regno</a>"
-  ],
-  [
-   "Medio Regno",
-   "c. 2055–1650 a.C.",
-   "Tebe emerge, bonifica del Fayoum.",
-   "Karnak, El Fayoum",
-   "<a href=\"https://it.wikipedia.org/wiki/Medio_Regno_(Egitto)\" target=\"_blank\" rel=\"noopener\">Medio Regno</a>"
-  ],
-  [
-   "Nuovo Regno",
-   "c. 1550–1069 a.C.",
-   "L'impero: Hatshepsut, Tutankhamon, Ramses II.",
-   "Luxor, Karnak, Valle dei Re, Abu Simbel",
-   "<a href=\"https://it.wikipedia.org/wiki/Nuovo_Regno_(Egitto)\" target=\"_blank\" rel=\"noopener\">Nuovo Regno</a>"
-  ],
-  [
-   "Epoca tolemaica",
-   "332–30 a.C.",
-   "Re greci che costruiscono templi all'egizia.",
-   "Edfu, Kom Ombo, Philae",
-   "<a href=\"https://it.wikipedia.org/wiki/Egitto_tolemaico\" target=\"_blank\" rel=\"noopener\">Egitto tolemaico</a>"
-  ],
-  [
-   "Epoca romana e bizantina",
-   "30 a.C.–641 d.C.",
-   "Fine dei culti antichi.",
-   "Philae, Colossi di Memnone",
-   "<a href=\"https://it.wikipedia.org/wiki/Egitto_(provincia_romana)\" target=\"_blank\" rel=\"noopener\">Egitto romano</a>"
-  ],
-  [
-   "Epoca islamica",
-   "dal 641 d.C.",
-   "Fondazione del Cairo, Saladino, Mamelucchi, Ottomani.",
-   "Cittadella, Khan el-Khalili",
-   "<a href=\"https://it.wikipedia.org/wiki/Storia_dell%27Egitto_arabo\" target=\"_blank\" rel=\"noopener\">Storia dell'Egitto arabo</a>"
-  ],
-  [
-   "Egitto moderno",
-   "dal 1805",
-   "Muhammad Ali, poi la Diga di Assuan.",
-   "Moschea di Alabastro, Diga Alta",
-   "<a href=\"https://it.wikipedia.org/wiki/Storia_dell%27Egitto_moderno\" target=\"_blank\" rel=\"noopener\">Storia dell'Egitto moderno</a>, <a href=\"https://it.wikipedia.org/wiki/Mehmet_Ali\" target=\"_blank\" rel=\"noopener\">Muhammad Ali</a>"
-  ]
+  {
+   "nome": "Unificazione",
+   "date": "c. 3100 a.C.",
+   "testo": "Alto e Basso Egitto diventano un regno, capitale Memphis.",
+   "dove": "Memphis",
+   "da": -3100,
+   "a": -2686,
+   "img": "img/g4-memphis.jpg",
+   "colore": "#7A4B2A",
+   "giorni": [
+    4
+   ],
+   "wiki": "<a href=\"https://it.wikipedia.org/wiki/Periodo_Protodinastico_(Egitto)\" target=\"_blank\" rel=\"noopener\">Periodo protodinastico</a>, <a href=\"https://it.wikipedia.org/wiki/Narmer\" target=\"_blank\" rel=\"noopener\">Narmer</a>"
+  },
+  {
+   "nome": "Antico Regno",
+   "date": "c. 2686–2181 a.C.",
+   "testo": "L'età delle piramidi.",
+   "dove": "Saqqara, Dahshur, Giza",
+   "da": -2686,
+   "a": -2181,
+   "img": "img/g3-chefren.jpg",
+   "colore": "#A8771A",
+   "giorni": [
+    3,
+    4
+   ],
+   "wiki": "<a href=\"https://it.wikipedia.org/wiki/Antico_Regno_(Egitto)\" target=\"_blank\" rel=\"noopener\">Antico Regno</a>"
+  },
+  {
+   "nome": "Medio Regno",
+   "date": "c. 2055–1650 a.C.",
+   "testo": "Tebe emerge, bonifica del Fayoum.",
+   "dove": "Karnak, El Fayoum",
+   "da": -2055,
+   "a": -1650,
+   "img": "img/g11-qarun.jpg",
+   "colore": "#2F6B3F",
+   "giorni": [
+    5,
+    11
+   ],
+   "wiki": "<a href=\"https://it.wikipedia.org/wiki/Medio_Regno_(Egitto)\" target=\"_blank\" rel=\"noopener\">Medio Regno</a>"
+  },
+  {
+   "nome": "Nuovo Regno",
+   "date": "c. 1550–1069 a.C.",
+   "testo": "L'impero: Hatshepsut, Tutankhamon, Ramses II.",
+   "dove": "Luxor, Karnak, Valle dei Re, Abu Simbel",
+   "da": -1550,
+   "a": -1069,
+   "img": "img/g10-maggiore.jpg",
+   "colore": "#9A3B1E",
+   "giorni": [
+    5,
+    7,
+    10
+   ],
+   "wiki": "<a href=\"https://it.wikipedia.org/wiki/Nuovo_Regno_(Egitto)\" target=\"_blank\" rel=\"noopener\">Nuovo Regno</a>"
+  },
+  {
+   "nome": "Epoca tolemaica",
+   "date": "332–30 a.C.",
+   "testo": "Re greci che costruiscono templi all'egizia.",
+   "dove": "Edfu, Kom Ombo, Philae",
+   "da": -332,
+   "a": -30,
+   "img": "img/g8-edfu.jpg",
+   "colore": "#4D6A2A",
+   "giorni": [
+    8,
+    9
+   ],
+   "wiki": "<a href=\"https://it.wikipedia.org/wiki/Egitto_tolemaico\" target=\"_blank\" rel=\"noopener\">Egitto tolemaico</a>"
+  },
+  {
+   "nome": "Epoca romana e bizantina",
+   "date": "30 a.C.–641 d.C.",
+   "testo": "Fine dei culti antichi.",
+   "dove": "Philae, Colossi di Memnone",
+   "da": -30,
+   "a": 641,
+   "img": "img/g9-philae.jpg",
+   "colore": "#1B5E7A",
+   "giorni": [
+    7,
+    9
+   ],
+   "wiki": "<a href=\"https://it.wikipedia.org/wiki/Egitto_(provincia_romana)\" target=\"_blank\" rel=\"noopener\">Egitto romano</a>"
+  },
+  {
+   "nome": "Epoca islamica",
+   "date": "dal 641 d.C.",
+   "testo": "Fondazione del Cairo, Saladino, Mamelucchi, Ottomani.",
+   "dove": "Cittadella, Khan el-Khalili",
+   "da": 641,
+   "a": 1805,
+   "img": "img/g2-cittadella.jpg",
+   "colore": "#1F6B55",
+   "giorni": [
+    2
+   ],
+   "wiki": "<a href=\"https://it.wikipedia.org/wiki/Storia_dell%27Egitto_arabo\" target=\"_blank\" rel=\"noopener\">Storia dell'Egitto arabo</a>"
+  },
+  {
+   "nome": "Egitto moderno",
+   "date": "dal 1805",
+   "testo": "Muhammad Ali, poi la Diga di Assuan.",
+   "dove": "Moschea di Alabastro, Diga Alta",
+   "da": 1805,
+   "a": 2027,
+   "img": "img/g9-diga.jpg",
+   "colore": "#1F3A6E",
+   "giorni": [
+    2,
+    9
+   ],
+   "wiki": "<a href=\"https://it.wikipedia.org/wiki/Storia_dell%27Egitto_moderno\" target=\"_blank\" rel=\"noopener\">Storia dell'Egitto moderno</a>, <a href=\"https://it.wikipedia.org/wiki/Mehmet_Ali\" target=\"_blank\" rel=\"noopener\">Muhammad Ali</a>"
+  }
  ],
  "sovrani": [
   [

@@ -81,7 +81,7 @@ def collegamenti():
                 aggiungi(" ".join(r["wiki"]), (f"Giorno {g['n']}: {r['titolo']}", f"#/giorno/{g['n']}"))
     for sezione, voci in basi.items():
         for v in voci:
-            aggiungi(v[-1], (f"Basi: {SEZIONI[sezione]}", "#/basi"))
+            aggiungi(v["wiki"] if isinstance(v, dict) else v[-1], (f"Basi: {SEZIONI[sezione]}", "#/basi"))
     return out
 
 

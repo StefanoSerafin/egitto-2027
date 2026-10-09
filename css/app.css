@@ -110,3 +110,19 @@ button.indietro { font: inherit; font-size: 16px; font-weight: 600; background: 
 .fatti dd { margin: 2px 0 0; font-family: var(--display); font-size: 21px; line-height: 1.2; color: var(--accento); overflow-wrap: anywhere; }
 .voci.numerate li { color: var(--inchiostro); }
 .bottone { display: block; text-align: center; padding: 15px 18px; background: var(--inchiostro); color: var(--carta); text-decoration: none; font-weight: 600; font-size: 17px; }
+
+/* linea del tempo */
+.tempo-barra { display: block; width: 100%; height: auto; margin: 6px 0 14px; }
+.tempo-barra text { font-family: var(--testo); }
+.tempo-seg { cursor: pointer; }
+.tempo-riga { display: flex; gap: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; margin: 0 -16px; padding: 0 16px 10px; position: relative; }
+.tempo-scheda { flex: 0 0 250px; scroll-snap-align: start; scroll-margin-left: 16px; border-top: 8px solid var(--c); background: var(--tinta-chiaro); }
+.tempo-scheda img { display: block; width: 100%; height: 150px; object-fit: cover; }
+.tempo-scheda > div { padding: 12px 14px 14px; }
+.tempo-scheda h3 { font-family: var(--display); font-weight: 400; font-size: 23px; line-height: 1.1; margin: 0; color: var(--inchiostro); }
+.tempo-scheda p { margin: 8px 0 0; font-size: 15px; }
+.tempo-scheda .tempo-num { margin: 0 0 2px; font-family: var(--display); font-size: 30px; line-height: 1; color: var(--c); }
+.tempo-scheda .tempo-date { margin-top: 2px; font-family: var(--display); font-size: 17px; color: var(--c); }
+.tempo-scheda .tempo-dove, .tempo-scheda .wiki-riga { font-size: 14px; color: var(--tenue); }
+.tempo-scheda .wiki-riga a { text-decoration: underline; text-underline-offset: 2px; }
+@media (min-width: 700px) { .tempo-riga { margin: 0; padding-left: 0; padding-right: 0; } }

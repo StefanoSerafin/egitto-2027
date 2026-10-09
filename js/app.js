@@ -117,10 +117,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function voci(lista, fn) { return '<ul class="voci">' + lista.map(function (v) { return '<li>' + fn(v) + '</li>'; }).join('') + '</ul>'; }
 
+  // Linea del tempo: una barra in scala (ogni periodo largo quanto è durato) e sotto una scheda per periodo, da scorrere verso destra
+  function lineaDelTempo() {
+    const T = BASI.tempo, inizio = -3200, fine = 2100, L = 1000;
+    function x(anno) { return (anno - inizio) / (fine - inizio) * L; }
+    let svg = '<svg class="tempo-barra" viewBox="0 0 1000 150" role="img" aria-label="Barra del tempo in scala, dal 3100 avanti Cristo a oggi">'
+      + '<rect x="0" y="34" width="1000" height="56" fill="var(--tinta-chiaro)"/>';
+    T.forEach(function (p, i) {
+      const x0 = x(p.da), w = x(p.a) - x0;
+      svg += '<g class="tempo-seg" data-periodo="' + i + '"><rect x="' + x0.toFixed(1) + '" y="34" width="' + w.toFixed(1) + '" height="56" fill="' + p.colore + '"/>'
+        + '<text x="' + (x0 + w / 2).toFixed(1) + '" y="74" text-anchor="middle" fill="#fff" font-size="34" font-weight="600">' + (i + 1) + '</text></g>';
+    });
+    [[-3000, '3000 a.C.'], [-2000, '2000 a.C.'], [-1000, '1000 a.C.'], [1, 'anno 1'], [1000, '1000'], [2000, '2000']].forEach(function (t, k, tutte) {
+      const ancora = k === 0 ? 'start' : (k === tutte.length - 1 ? 'end' : 'middle');
+      svg += '<line x1="' + x(t[0]).toFixed(1) + '" y1="90" x2="' + x(t[0]).toFixed(1) + '" y2="104" stroke="var(--tenue)" stroke-width="2"/>'
+        + '<text x="' + x(t[0]).toFixed(1) + '" y="134" text-anchor="' + ancora + '" font-size="26" fill="var(--tenue)">' + t[1] + '</text>';
+    });
+    svg += '<path d="M0 16 H975 M960 6 L978 16 L960 26" fill="none" stroke="var(--tenue)" stroke-width="2.5"/></svg>';
+    let righe = '<div class="tempo-riga" id="tempoRiga">';
+    T.forEach(function (p, i) {
+      righe += '<article class="tempo-scheda" id="periodo' + i + '" style="--c:' + p.colore + '">'
+        + '<img src="' + p.img + '" alt="" loading="lazy">'
+        + '<div><p class="tempo-num">' + (i + 1) + '</p><h3>' + p.nome + '</h3><p class="tempo-date">' + p.date + '</p>'
+        + '<p>' + p.testo + '</p><p class="tempo-dove">Lo vedrete a ' + p.dove + ': '
+        + p.giorni.map(function (n) { return '<a href="#/giorno/' + n + '">giorno ' + n + '</a>'; }).join(', ') + '.</p>'
+        + '<p class="wiki-riga">Approfondisci: ' + p.wiki + '</p></div></article>';
+    });
+    return '<p class="quando">La barra è in scala: ogni periodo è largo quanto è durato. Tocca un numero o scorri le schede verso destra.</p>'
+      + svg + righe + '</div>';
+  }
+
   function vistaBasi() {
     function wiki(v) { return '<span class="wiki-riga">Approfondisci: ' + v[v.length - 1] + '</span>'; }
     return '<header><h1>Le basi</h1><p class="filo">Quello che serve per orientarsi fra tremila anni di storia, prima di entrare nel primo tempio.</p></header>'
-      + '<section class="sezione"><h2>Linea del tempo</h2>' + voci(BASI.tempo, function (v) { return '<b>' + v[0] + '</b><em>' + v[1] + '</em><span>' + v[2] + ' Lo vedrete a: ' + v[3] + '.</span>' + wiki(v); }) + '</section>'
+      + '<section class="sezione"><h2>Linea del tempo</h2>' + lineaDelTempo() + '</section>'
       + '<section class="sezione"><h2>I sovrani da riconoscere</h2>' + voci(BASI.sovrani, function (v) { return '<b>' + v[0] + '</b><em>' + v[1] + '</em><span>' + v[2] + '</span>' + wiki(v); }) + '</section>'
       + '<section class="sezione"><h2>Gli dèi</h2>' + voci(BASI.dei, function (v) { return '<b>' + v[0] + '</b><span>' + v[1] + '. ' + v[2] + '</span>' + wiki(v); }) + '</section>'
       + '<section class="sezione"><h2>Il cielo degli Egizi in cinque idee</h2><ul class="voci numerate">' + BASI.cielo.map(function (v) { return '<li><b>' + v[0] + '</b><span>' + v[1] + '</span>' + wiki(v) + '</li>'; }).join('') + '</ul></section>'
@@ -212,6 +242,15 @@ document.addEventListener('DOMContentLoaded', function () {
       EgittoMappa.apri(document.getElementById('mappa'), document.getElementById('chips'));
     }
   }
+
+  // Tocco su un periodo della barra del tempo: porta in vista la scheda corrispondente
+  vista.addEventListener('click', function (e) {
+    const seg = e.target.closest ? e.target.closest('.tempo-seg') : null;
+    if (!seg) return;
+    const scheda = document.getElementById('periodo' + seg.getAttribute('data-periodo'));
+    const riga = document.getElementById('tempoRiga');
+    if (scheda && riga) riga.scrollTo({ left: scheda.offsetLeft - riga.offsetLeft - 16, behavior: 'smooth' });
+  });
 
   // I link a Wikipedia aprono prima la scheda interna; da lì il pulsante porta alla voce completa
   vista.addEventListener('click', function (e) {
