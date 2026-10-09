@@ -1,0 +1,92 @@
+/* Parti proprie della web app. Lo stile delle giornate è in giorno.css (generato). */
+body { padding-bottom: calc(60px + env(safe-area-inset-bottom)); transition: background-color .2s; }
+.pagina { padding-top: calc(28px + env(safe-area-inset-top)); }
+a { color: var(--tinta); }
+
+/* barra delle schede */
+.schede {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000; display: flex;
+  background: var(--carta); border-top: 1px solid var(--tinta-chiaro);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.schede a {
+  flex: 1; text-align: center; padding: 16px 2px 14px; font-size: 15px;
+  color: var(--tenue); text-decoration: none;
+}
+.schede a.attiva { color: var(--tinta); font-weight: 600; box-shadow: inset 0 3px 0 var(--accento); }
+
+/* elenco dei giorni */
+.conto { margin: 22px 0 0; padding: 14px 16px; background: var(--tinta-chiaro); font-size: 17px; }
+.conto b { font-family: var(--display); font-weight: 400; font-size: 30px; color: var(--accento); margin-right: 6px; }
+.panoramica { margin: 22px 0 0; }
+.elenco { list-style: none; margin: 22px 0 0; padding: 0; }
+.elenco a {
+  display: grid; grid-template-columns: 52px 1fr 76px; column-gap: 14px; align-items: center;
+  padding: 12px 0; border-top: 1px solid var(--tinta-chiaro); text-decoration: none; color: inherit; min-height: 78px;
+}
+.elenco .num { font-family: var(--display); font-size: 36px; line-height: 1; text-align: center; }
+.elenco .tit { display: block; font-family: var(--display); font-size: 22px; line-height: 1.15; }
+.elenco .dat { display: block; font-size: 14px; color: var(--tenue); margin-top: 2px; }
+.elenco img { width: 76px; height: 56px; object-fit: cover; display: block; }
+.elenco .oggi .tit::after { content: " (oggi)"; font-family: var(--testo); font-size: 14px; color: var(--accento); }
+
+/* giornata */
+.passi { display: flex; justify-content: space-between; gap: 16px; margin-top: 22px; font-size: 16px; }
+.passi a { padding: 10px 0; }
+.torna { display: inline-block; margin-bottom: 14px; font-size: 15px; padding: 6px 0; }
+.nota.con-foto { display: flex; gap: 14px; align-items: flex-start; }
+.nota.con-foto p { margin: 0; flex: 1; }
+.nota.con-foto img { width: 120px; height: auto; flex: none; display: block; }
+.viaggio { margin-top: 28px; }
+
+/* mappa */
+.pagina.piena { max-width: none; padding: 0; }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding: calc(10px + env(safe-area-inset-top)) 16px 10px; -webkit-overflow-scrolling: touch; }
+.chips button {
+  flex: none; font: inherit; font-size: 15px; padding: 9px 14px; border-radius: 999px;
+  border: 1px solid var(--tinta-chiaro); background: var(--carta); color: var(--inchiostro);
+}
+.chips button.attiva { background: var(--inchiostro); color: var(--carta); border-color: var(--inchiostro); }
+.chips button i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+#mappa { height: calc(100vh - 60px - 62px - env(safe-area-inset-bottom) - env(safe-area-inset-top)); height: calc(100dvh - 60px - 62px - env(safe-area-inset-bottom) - env(safe-area-inset-top)); }
+.mappa-nota { padding: 8px 16px; font-size: 13px; color: var(--tenue); margin: 0; }
+.spillo { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; border: 2px solid #fff; color: #fff; font: 600 13px/1 -apple-system, sans-serif; box-shadow: 0 1px 4px rgba(0,0,0,.45); }
+.fumetto img { display: block; width: 100%; height: 110px; object-fit: cover; margin-bottom: 8px; }
+.fumetto b { display: block; font-size: 15px; }
+.fumetto span { display: block; font-size: 13px; color: #555; margin: 2px 0 6px; }
+.fumetto a { display: inline-block; margin-right: 12px; font-size: 14px; padding: 4px 0; }
+
+/* basi e info */
+.sezione { margin-top: 34px; }
+.sezione h2 { font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1.1; margin: 0 0 10px; }
+.sezione h3 { font-size: 15px; font-weight: 600; color: var(--tinta); margin: 18px 0 6px; }
+.voci { list-style: none; margin: 0; padding: 0; }
+.voci li { padding: 10px 0; border-top: 1px solid var(--tinta-chiaro); }
+.voci b { font-weight: 600; }
+.voci em { font-style: normal; color: var(--accento); font-family: var(--display); font-size: 18px; margin-left: 8px; white-space: nowrap; }
+.voci span { display: block; color: var(--tenue); font-size: 15px; }
+.voci.numerate { counter-reset: v; }
+.voci.numerate li { counter-increment: v; padding-left: 40px; position: relative; }
+.voci.numerate li::before { content: counter(v); position: absolute; left: 0; top: 6px; font-family: var(--display); font-size: 30px; color: var(--accento); }
+.spunte { list-style: none; margin: 0; padding: 0; }
+.spunte label { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--tinta-chiaro); }
+.spunte input { width: 22px; height: 22px; flex: none; accent-color: var(--tinta); }
+.spunte input:checked + span { color: var(--tenue); text-decoration: line-through; }
+.elenco-semplice { margin: 0; padding-left: 1.1em; }
+.elenco-semplice li { margin-bottom: 4px; }
+
+/* foto verticali: non devono occupare tutto lo schermo */
+.foto img { max-height: 520px; object-fit: contain; object-position: left center; }
+
+.voci a { text-decoration: none; }
+
+/* outfit */
+.coppia { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.coppia .foto { margin: 0; }
+.coppia img { border-radius: 14px; }
+.coppia figcaption b { display: block; color: var(--inchiostro); font-size: 16px; }
+.situazione { padding: 16px 0 18px; border-top: 1px solid var(--tinta-chiaro); }
+.situazione h3 { font-family: var(--display); font-weight: 400; font-size: 22px; color: var(--inchiostro); margin: 0 0 6px; }
+.situazione p { margin: 0 0 12px; }
+.look-riga { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.look-riga img { width: 100%; height: auto; display: block; border-radius: 12px; }

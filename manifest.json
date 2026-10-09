@@ -1,0 +1,10 @@
+{
+  "name": "Egitto 2027",
+  "short_name": "Egitto 2027",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#EFEBDF",
+  "theme_color": "#EFEBDF",
+  "lang": "it",
+  "icons": [{ "src": "icona-180.png", "sizes": "180x180", "type": "image/png" }]
+}
