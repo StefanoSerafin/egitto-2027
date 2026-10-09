@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let h = '<header><p class="giorno">28 luglio – 10 agosto 2027</p><h1>Egitto 2027</h1>'
       + '<p class="filo">Tredici giorni con Luca Perri: dal Cairo ad Abu Simbel, l\'eclissi totale a Luxor e le balene fossili del deserto.</p>'
       + conto + '</header>'
-      + '<figure class="foto panoramica"><a href="img/panoramica.jpg" class="apri-locandina"><img src="img/panoramica.jpg" alt="Locandina del viaggio: mappa dell\'Egitto con le tappe, la fascia dell\'eclissi e i giorni"></a>'
+      + '<figure class="foto panoramica"><a href="#/locandina"><img src="img/panoramica.jpg" alt="Locandina del viaggio: mappa dell\'Egitto con le tappe, la fascia dell\'eclissi e i giorni"></a>'
       + '<figcaption>Il viaggio in una pagina: tocca per ingrandire.</figcaption></figure>'
       + '<ul class="elenco">';
     GIORNI.forEach(function (g) {
@@ -79,6 +79,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     return '<div class="chips" id="chips"></div><div id="mappa"></div>'
       + '<p class="mappa-nota">La linea tratteggiata unisce le tappe in ordine di visita: non è il percorso reale. Alcune posizioni sono indicative.</p>';
+  }
+
+  function vistaLocandina() {
+    return '<div class="loc-barra"><a href="#/">Tutti i giorni</a><span>Scorri di lato, tocca per ingrandire</span></div>'
+      + '<div class="loc-area" id="locArea"><img src="img/panoramica.jpg" alt="Locandina del viaggio: mappa dell\'Egitto con le tappe, la fascia dell\'eclissi e i giorni"></div>';
   }
 
   function voci(lista, fn) { return '<ul class="voci">' + lista.map(function (v) { return '<li>' + fn(v) + '</li>'; }).join('') + '</ul>'; }
@@ -159,6 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
     tavolozza(PAL_BASE);
     vista.className = 'pagina';
     if (m) vista.innerHTML = vistaGiorno(Number(m[1]));
+    else if (r === '/locandina') { vista.className = 'pagina piena'; vista.innerHTML = vistaLocandina(); }
     else if (r === '/mappa') { scheda = 'mappa'; vista.className = 'pagina piena'; vista.innerHTML = vistaMappa(); }
     else if (r === '/basi') { scheda = 'basi'; vista.innerHTML = vistaBasi(); }
     else if (r === '/outfit') { scheda = 'outfit'; vista.innerHTML = vistaOutfit(); }
@@ -175,6 +181,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  vista.addEventListener('click', function (e) {
+    if (e.target.parentNode && e.target.parentNode.id === 'locArea') e.target.parentNode.classList.toggle('grande');
+  });
+
+  // Le schede funzionano sempre, anche quando l'indirizzo non cambia (per esempio Giorni mentre si è già sui giorni)
+  schede.addEventListener('click', function (e) {
+    const a = e.target.closest ? e.target.closest('a') : null;
+    if (a && a.getAttribute('href') === (location.hash || '#/')) mostra();
+  });
+
   vista.addEventListener('change', function (e) {
     const voce = e.target.getAttribute && e.target.getAttribute('data-voce');
     if (!voce) return;
@@ -183,32 +199,15 @@ document.addEventListener('DOMContentLoaded', function () {
     try { localStorage.setItem(CHIAVE_VALIGIA, JSON.stringify(fatte)); } catch (err) { /* navigazione privata: la spunta vale solo ora */ }
   });
 
-  // Locandina a tutto schermo, dentro l'app: aprire il file dell'immagine lasciava iPhone e iPad senza modo di tornare indietro.
-  function apriLocandina() {
-    const velo = document.createElement('div');
-    velo.className = 'velo';
-    velo.innerHTML = '<button type="button" class="velo-chiudi">Chiudi</button><div class="velo-area"><img src="img/panoramica.jpg" alt="Locandina del viaggio"></div>'
-      + '<p class="velo-nota">Scorri per spostarti, tocca l\'immagine per ingrandire</p>';
-    document.body.appendChild(velo);
-    velo.querySelector('.velo-chiudi').addEventListener('click', function () { velo.remove(); });
-    velo.querySelector('img').addEventListener('click', function () { velo.classList.toggle('grande'); });
-  }
-
-  vista.addEventListener('click', function (e) {
-    const link = e.target.closest ? e.target.closest('.apri-locandina') : null;
-    if (!link) return;
-    e.preventDefault();
-    apriLocandina();
-  });
-
-  window.addEventListener('hashchange', function () {
-    const velo = document.querySelector('.velo');
-    if (velo) velo.remove();
-  });
   window.addEventListener('hashchange', mostra);
   mostra();
 
-  if ('serviceWorker' in navigator && location.protocol === 'https:') {
-    navigator.serviceWorker.register('sw.js').catch(function () {});
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    const giaControllata = !!navigator.serviceWorker.controller;
+    let ricaricata = false;
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (giaControllata && !ricaricata) { ricaricata = true; location.reload(); }
+    });
+    navigator.serviceWorker.register('sw.js').then(function (reg) { reg.update(); }).catch(function () {});
   }
 });

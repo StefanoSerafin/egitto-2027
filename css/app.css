@@ -91,17 +91,11 @@ a { color: var(--tinta); }
 .look-riga { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .look-riga img { width: 100%; height: auto; display: block; border-radius: 12px; }
 
-/* locandina a tutto schermo */
-.velo { position: fixed; inset: 0; z-index: 3000; background: #0B1220; }
-.velo-area { position: absolute; inset: 0; overflow: auto; -webkit-overflow-scrolling: touch; }
-.velo-area img { display: block; height: 100vh; height: 100dvh; width: auto; max-width: none; }
-.velo.grande .velo-area img { height: 220vh; height: 220dvh; }
-.velo-chiudi {
-  position: fixed; z-index: 1; top: calc(12px + env(safe-area-inset-top)); right: calc(12px + env(safe-area-inset-right));
-  font: inherit; font-size: 16px; font-weight: 600; padding: 12px 18px; min-height: 44px;
-  border: 0; border-radius: 999px; background: #fff; color: #0B1220; box-shadow: 0 2px 10px rgba(0,0,0,.5);
-}
-.velo-nota {
-  position: fixed; left: 0; right: 0; bottom: calc(10px + env(safe-area-inset-bottom)); margin: 0; text-align: center;
-  font-size: 13px; color: #fff; text-shadow: 0 1px 3px #000; pointer-events: none;
-}
+/* locandina */
+.loc-barra { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: calc(10px + env(safe-area-inset-top)) 16px 10px; font-size: 14px; color: var(--tenue); }
+.loc-barra a { font-size: 16px; font-weight: 600; padding: 10px 0; }
+.loc-area { overflow: auto; -webkit-overflow-scrolling: touch; background: #0B1220;
+  height: calc(100vh - 60px - 64px - env(safe-area-inset-bottom) - env(safe-area-inset-top));
+  height: calc(100dvh - 60px - 64px - env(safe-area-inset-bottom) - env(safe-area-inset-top)); }
+.loc-area img { display: block; height: 100%; width: auto; max-width: none; }
+.loc-area.grande img { height: 220%; }

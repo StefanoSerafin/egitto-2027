@@ -29,10 +29,12 @@ Info), poi lanciare `python3 ../infografiche/genera.py && python3 tools/costruis
   tessere OpenStreetMap senza chiave, uno spillo per tappa con il numero del giorno.
 - `tools/sw.modello.js` — modello del service worker.
 
-## Uso offline
-`sw.js` mette in cache tutti i file dell'app alla prima apertura in https: le giornate funzionano
-senza rete. La mappa no (le tessere arrivano dalla rete). A ogni `costruisci.py` la versione della
-cache cambia, così l'iPhone scarica i file nuovi.
+## Uso offline e aggiornamenti
+`sw.js` salva tutti i file alla prima apertura in https. Immagini e Leaflet si leggono dalla copia salvata;
+pagina, stile, codice e dati si chiedono prima alla rete (con ripiego sulla copia salvata se la rete manca o
+tarda oltre 3,5 s), così un iPhone connesso vede subito l'ultima versione. La mappa richiede sempre la rete.
+Su iPhone l'app aggiunta alla Home ha una memoria separata da Safari: provare lì, non solo nel browser.
+Mai link che aprono un file (immagine, PDF) nella stessa finestra: nell'app a tutto schermo non c'è il tasto indietro.
 
 ## Regole
 - La vista Giorni mostra `img/panoramica.jpg`, ricavata da `../Egitto 2027_ Sotto il Sole Nero_corretta.png`
