@@ -78,7 +78,8 @@ a { color: var(--tinta); }
 /* foto verticali: non devono occupare tutto lo schermo */
 .foto img { max-height: 520px; object-fit: contain; object-position: left center; }
 
-.voci a { text-decoration: none; }
+.voci .wiki-riga { margin-top: 4px; font-size: 14px; }
+.voci .wiki-riga a { text-decoration: underline; text-underline-offset: 2px; }
 
 /* outfit */
 .coppia { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }

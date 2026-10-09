@@ -89,12 +89,13 @@ document.addEventListener('DOMContentLoaded', function () {
   function voci(lista, fn) { return '<ul class="voci">' + lista.map(function (v) { return '<li>' + fn(v) + '</li>'; }).join('') + '</ul>'; }
 
   function vistaBasi() {
+    function wiki(v) { return '<span class="wiki-riga">Su Wikipedia: ' + v[v.length - 1] + '</span>'; }
     return '<header><h1>Le basi</h1><p class="filo">Quello che serve per orientarsi fra tremila anni di storia, prima di entrare nel primo tempio.</p></header>'
-      + '<section class="sezione"><h2>Linea del tempo</h2>' + voci(BASI.tempo, function (v) { return '<b>' + v[0] + '</b><em>' + v[1] + '</em><span>' + v[2] + ' Lo vedrete a: ' + v[3] + '.</span>'; }) + '</section>'
-      + '<section class="sezione"><h2>I sovrani da riconoscere</h2>' + voci(BASI.sovrani, function (v) { return '<b>' + v[0] + '</b><em>' + v[1] + '</em><span>' + v[2] + '</span>'; }) + '</section>'
-      + '<section class="sezione"><h2>Gli dèi</h2>' + voci(BASI.dei, function (v) { return '<b>' + v[0] + '</b><span>' + v[1] + '. ' + v[2] + '</span>'; }) + '</section>'
-      + '<section class="sezione"><h2>Il cielo degli Egizi in cinque idee</h2><ul class="voci numerate">' + BASI.cielo.map(function (v) { return '<li><b>' + v[0] + '</b><span>' + v[1] + '</span></li>'; }).join('') + '</ul></section>'
-      + '<section class="sezione"><h2>Glossario</h2>' + voci(BASI.glossario, function (v) { return '<b>' + v[0] + '</b><span>' + v[1] + '</span>'; }) + '</section>';
+      + '<section class="sezione"><h2>Linea del tempo</h2>' + voci(BASI.tempo, function (v) { return '<b>' + v[0] + '</b><em>' + v[1] + '</em><span>' + v[2] + ' Lo vedrete a: ' + v[3] + '.</span>' + wiki(v); }) + '</section>'
+      + '<section class="sezione"><h2>I sovrani da riconoscere</h2>' + voci(BASI.sovrani, function (v) { return '<b>' + v[0] + '</b><em>' + v[1] + '</em><span>' + v[2] + '</span>' + wiki(v); }) + '</section>'
+      + '<section class="sezione"><h2>Gli dèi</h2>' + voci(BASI.dei, function (v) { return '<b>' + v[0] + '</b><span>' + v[1] + '. ' + v[2] + '</span>' + wiki(v); }) + '</section>'
+      + '<section class="sezione"><h2>Il cielo degli Egizi in cinque idee</h2><ul class="voci numerate">' + BASI.cielo.map(function (v) { return '<li><b>' + v[0] + '</b><span>' + v[1] + '</span>' + wiki(v) + '</li>'; }).join('') + '</ul></section>'
+      + '<section class="sezione"><h2>Glossario</h2>' + voci(BASI.glossario, function (v) { return '<b>' + v[0] + '</b><span>' + v[1] + '</span>' + wiki(v); }) + '</section>';
   }
 
   function leggiValigia() { try { return JSON.parse(localStorage.getItem(CHIAVE_VALIGIA)) || {}; } catch (e) { return {}; } }

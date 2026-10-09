@@ -160,6 +160,27 @@ BASI = {
   ("Levata eliaca", "Primo giorno in cui una stella torna visibile all'alba."), ("Feluca", "Barca a vela tradizionale del Nilo."),
  ],
 }
+# voci di Wikipedia in italiano per ogni argomento delle Basi (esistenza verificata il 9 ottobre 2026)
+BASI_WIKI = {
+ "Unificazione": [W("Periodo Protodinastico (Egitto)", "Periodo protodinastico"), W("Narmer")],
+ "Antico Regno": [W("Antico Regno (Egitto)", "Antico Regno")], "Medio Regno": [W("Medio Regno (Egitto)", "Medio Regno")],
+ "Nuovo Regno": [W("Nuovo Regno (Egitto)", "Nuovo Regno")], "Epoca tolemaica": [W("Egitto tolemaico")],
+ "Epoca romana e bizantina": [W("Egitto (provincia romana)", "Egitto romano")], "Epoca islamica": [W("Storia dell'Egitto arabo")],
+ "Egitto moderno": [W("Storia dell'Egitto moderno"), W("Mehmet Ali", "Muhammad Ali")],
+ "Zoser": [W("Djoser", "Zoser")], "Snefru": [W("Snefru")], "Cheope, Chefren, Micerino": [W("Cheope"), W("Chefren"), W("Micerino")],
+ "Hatshepsut": [W("Hatshepsut")], "Amenhotep III": [W("Amenofi III", "Amenhotep III")], "Tutankhamon": [W("Tutankhamon")],
+ "Seti I": [W("Seti I")], "Ramses II": [W("Ramses II")],
+ "Ra": [W("Ra")], "Amon": [W("Amon")], "Osiride": [W("Osiride")], "Iside": [W("Iside")], "Horus": [W("Horus")], "Hathor": [W("Hathor")],
+ "Nut": [W("Nut (mitologia)", "Nut")], "Ptah": [W("Ptah")], "Sobek": [W("Sobek")], "Seshat": [W("Seshat")],
+ "I punti cardinali": [W("Piramidi egizie"), W("Archeoastronomia")],
+ "Le stelle imperiture": [W("Astro circumpolare", "Stelle circumpolari"), W("Testi delle piramidi")],
+ "Sirio e il calendario": [W("Sirio"), W("Levata eliaca"), W("Calendario egizio")],
+ "I decani e le 24 ore": [W("Astronomia egizia")],
+ "Gli allineamenti solari": [W("Complesso templare di Karnak", "Karnak"), W("Abu Simbel")],
+ "Mastaba": [W("Mastaba")], "Pilone": [W("Pilone (architettura egizia)", "Pilone")], "Sala ipostila": [W("Ipostilo", "Sala ipostila")],
+ "Obelisco": [W("Obelisco")], "Cartiglio": [W("Cartiglio (Antico Egitto)", "Cartiglio")], "Nilometro": [W("Nilometro")],
+ "Levata eliaca": [W("Levata eliaca")], "Feluca": [W("Feluca (imbarcazione)", "Feluca")],
+}
 INFO = {
  "notti": [("28–31 luglio", "4 notti", "Il Cairo, hotel in centro"), ("1–5 agosto", "5 notti", "Nave MS Royal Ruby II; le prime due ferma a Luxor"),
            ("6 agosto", "1 notte", "Il Cairo, dopo Abu Simbel"), ("7 agosto", "1 notte", "El Fayoum"), ("8 agosto", "1 notte", "El Fayoum o Il Cairo: da confermare"), ("9 agosto", "forse in volo", "Rientro: arrivo in Italia il 9 sera o il 10, secondo gli orari")],
@@ -283,6 +304,17 @@ def copia(slug, crediti, n, titolo):
     return True
 
 
+def basi_con_wiki():
+    """Aggiunge in coda a ogni voce delle Basi l'elenco dei link a Wikipedia; segnala le voci senza link."""
+    out = {}
+    for sezione, voci in BASI.items():
+        out[sezione] = []
+        for v in voci:
+            assert v[0] in BASI_WIKI, "manca il link Wikipedia per: " + v[0]
+            out[sezione].append(list(v) + [", ".join(BASI_WIKI[v[0]])])
+    return out
+
+
 def js(nome, valore):
     return f"const {nome} = " + json.dumps(valore, ensure_ascii=False, indent=1) + ";\n"
 
@@ -300,7 +332,7 @@ def main():
     OUTFIT["foto"] = sorted(f[len("outfit-"):-4] for f in os.listdir(os.path.join(SITO, "img")) if f.startswith("outfit-"))
     giorni = [esporta_giorno(g, crediti) for g in [GIORNO_1, GIORNO_2] + G.GIORNI + [GIORNO_13]]
     open(os.path.join(SITO, "data", "giorni.js"), "w", encoding="utf-8").write(js("PAL_BASE", G.SABBIA) + js("GIORNI", giorni))
-    open(os.path.join(SITO, "data", "extra.js"), "w", encoding="utf-8").write(js("BASI", BASI) + js("INFO", INFO) + js("OUTFIT", OUTFIT) + js("CREDITI", crediti))
+    open(os.path.join(SITO, "data", "extra.js"), "w", encoding="utf-8").write(js("BASI", basi_con_wiki()) + js("INFO", INFO) + js("OUTFIT", OUTFIT) + js("CREDITI", crediti))
     open(os.path.join(SITO, "css", "giorno.css"), "w", encoding="utf-8").write(
         "/* Generato da tools/costruisci.py a partire da infografiche/genera.py: non modificare a mano. */\n" + G.CSS % G.SABBIA)
     file = ["./", "index.html", "manifest.json", "icona-180.png", "css/giorno.css", "css/app.css", "js/app.js", "js/mappa.js",

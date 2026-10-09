@@ -4,199 +4,238 @@ const BASI = {
    "Unificazione",
    "c. 3100 a.C.",
    "Alto e Basso Egitto diventano un regno, capitale Memphis.",
-   "Memphis"
+   "Memphis",
+   "<a href=\"https://it.wikipedia.org/wiki/Periodo_Protodinastico_(Egitto)\" target=\"_blank\" rel=\"noopener\">Periodo protodinastico</a>, <a href=\"https://it.wikipedia.org/wiki/Narmer\" target=\"_blank\" rel=\"noopener\">Narmer</a>"
   ],
   [
    "Antico Regno",
    "c. 2686–2181 a.C.",
    "L'età delle piramidi.",
-   "Saqqara, Dahshur, Giza"
+   "Saqqara, Dahshur, Giza",
+   "<a href=\"https://it.wikipedia.org/wiki/Antico_Regno_(Egitto)\" target=\"_blank\" rel=\"noopener\">Antico Regno</a>"
   ],
   [
    "Medio Regno",
    "c. 2055–1650 a.C.",
    "Tebe emerge, bonifica del Fayoum.",
-   "Karnak, El Fayoum"
+   "Karnak, El Fayoum",
+   "<a href=\"https://it.wikipedia.org/wiki/Medio_Regno_(Egitto)\" target=\"_blank\" rel=\"noopener\">Medio Regno</a>"
   ],
   [
    "Nuovo Regno",
    "c. 1550–1069 a.C.",
    "L'impero: Hatshepsut, Tutankhamon, Ramses II.",
-   "Luxor, Karnak, Valle dei Re, Abu Simbel"
+   "Luxor, Karnak, Valle dei Re, Abu Simbel",
+   "<a href=\"https://it.wikipedia.org/wiki/Nuovo_Regno_(Egitto)\" target=\"_blank\" rel=\"noopener\">Nuovo Regno</a>"
   ],
   [
    "Epoca tolemaica",
    "332–30 a.C.",
    "Re greci che costruiscono templi all'egizia.",
-   "Edfu, Kom Ombo, Philae"
+   "Edfu, Kom Ombo, Philae",
+   "<a href=\"https://it.wikipedia.org/wiki/Egitto_tolemaico\" target=\"_blank\" rel=\"noopener\">Egitto tolemaico</a>"
   ],
   [
    "Epoca romana e bizantina",
    "30 a.C.–641 d.C.",
    "Fine dei culti antichi.",
-   "Philae, Colossi di Memnone"
+   "Philae, Colossi di Memnone",
+   "<a href=\"https://it.wikipedia.org/wiki/Egitto_(provincia_romana)\" target=\"_blank\" rel=\"noopener\">Egitto romano</a>"
   ],
   [
    "Epoca islamica",
    "dal 641 d.C.",
    "Fondazione del Cairo, Saladino, Mamelucchi, Ottomani.",
-   "Cittadella, Khan el-Khalili"
+   "Cittadella, Khan el-Khalili",
+   "<a href=\"https://it.wikipedia.org/wiki/Storia_dell%27Egitto_arabo\" target=\"_blank\" rel=\"noopener\">Storia dell'Egitto arabo</a>"
   ],
   [
    "Egitto moderno",
    "dal 1805",
    "Muhammad Ali, poi la Diga di Assuan.",
-   "Moschea di Alabastro, Diga Alta"
+   "Moschea di Alabastro, Diga Alta",
+   "<a href=\"https://it.wikipedia.org/wiki/Storia_dell%27Egitto_moderno\" target=\"_blank\" rel=\"noopener\">Storia dell'Egitto moderno</a>, <a href=\"https://it.wikipedia.org/wiki/Mehmet_Ali\" target=\"_blank\" rel=\"noopener\">Muhammad Ali</a>"
   ]
  ],
  "sovrani": [
   [
    "Zoser",
    "2670 a.C.",
-   "Prima piramide, a Saqqara."
+   "Prima piramide, a Saqqara.",
+   "<a href=\"https://it.wikipedia.org/wiki/Djoser\" target=\"_blank\" rel=\"noopener\">Zoser</a>"
   ],
   [
    "Snefru",
    "2613–2589 a.C.",
-   "Padre di Cheope, piramidi di Dahshur."
+   "Padre di Cheope, piramidi di Dahshur.",
+   "<a href=\"https://it.wikipedia.org/wiki/Snefru\" target=\"_blank\" rel=\"noopener\">Snefru</a>"
   ],
   [
    "Cheope, Chefren, Micerino",
    "2589–2503 a.C.",
-   "Le tre piramidi di Giza."
+   "Le tre piramidi di Giza.",
+   "<a href=\"https://it.wikipedia.org/wiki/Cheope\" target=\"_blank\" rel=\"noopener\">Cheope</a>, <a href=\"https://it.wikipedia.org/wiki/Chefren\" target=\"_blank\" rel=\"noopener\">Chefren</a>, <a href=\"https://it.wikipedia.org/wiki/Micerino\" target=\"_blank\" rel=\"noopener\">Micerino</a>"
   ],
   [
    "Hatshepsut",
    "1479–1458 a.C.",
-   "Donna faraone: obelischi di Karnak, Deir el-Bahari."
+   "Donna faraone: obelischi di Karnak, Deir el-Bahari.",
+   "<a href=\"https://it.wikipedia.org/wiki/Hatshepsut\" target=\"_blank\" rel=\"noopener\">Hatshepsut</a>"
   ],
   [
    "Amenhotep III",
    "1390–1352 a.C.",
-   "Tempio di Luxor, Colossi di Memnone."
+   "Tempio di Luxor, Colossi di Memnone.",
+   "<a href=\"https://it.wikipedia.org/wiki/Amenofi_III\" target=\"_blank\" rel=\"noopener\">Amenhotep III</a>"
   ],
   [
    "Tutankhamon",
    "1336–1327 a.C.",
-   "Il tesoro al Grande Museo Egizio."
+   "Il tesoro al Grande Museo Egizio.",
+   "<a href=\"https://it.wikipedia.org/wiki/Tutankhamon\" target=\"_blank\" rel=\"noopener\">Tutankhamon</a>"
   ],
   [
    "Seti I",
    "1294–1279 a.C.",
-   "Sala ipostila di Karnak, la tomba più bella della Valle."
+   "Sala ipostila di Karnak, la tomba più bella della Valle.",
+   "<a href=\"https://it.wikipedia.org/wiki/Seti_I\" target=\"_blank\" rel=\"noopener\">Seti I</a>"
   ],
   [
    "Ramses II",
    "1279–1213 a.C.",
-   "Abu Simbel, Luxor, Memphis: 66 anni di regno."
+   "Abu Simbel, Luxor, Memphis: 66 anni di regno.",
+   "<a href=\"https://it.wikipedia.org/wiki/Ramses_II\" target=\"_blank\" rel=\"noopener\">Ramses II</a>"
   ]
  ],
  "dei": [
   [
    "Ra",
    "Falco con disco solare",
-   "Il Sole."
+   "Il Sole.",
+   "<a href=\"https://it.wikipedia.org/wiki/Ra\" target=\"_blank\" rel=\"noopener\">Ra</a>"
   ],
   [
    "Amon",
    "Uomo con due alte piume",
-   "Dio di Tebe, re degli dèi."
+   "Dio di Tebe, re degli dèi.",
+   "<a href=\"https://it.wikipedia.org/wiki/Amon\" target=\"_blank\" rel=\"noopener\">Amon</a>"
   ],
   [
    "Osiride",
    "Mummia verde con corona",
-   "Signore dei morti."
+   "Signore dei morti.",
+   "<a href=\"https://it.wikipedia.org/wiki/Osiride\" target=\"_blank\" rel=\"noopener\">Osiride</a>"
   ],
   [
    "Iside",
    "Donna con trono sul capo",
-   "Madre e maga, associata a Sirio."
+   "Madre e maga, associata a Sirio.",
+   "<a href=\"https://it.wikipedia.org/wiki/Iside\" target=\"_blank\" rel=\"noopener\">Iside</a>"
   ],
   [
    "Horus",
    "Falco",
-   "Figlio di Iside, dio dei faraoni."
+   "Figlio di Iside, dio dei faraoni.",
+   "<a href=\"https://it.wikipedia.org/wiki/Horus\" target=\"_blank\" rel=\"noopener\">Horus</a>"
   ],
   [
    "Hathor",
    "Donna con corna e disco",
-   "Amore, musica, maternità."
+   "Amore, musica, maternità.",
+   "<a href=\"https://it.wikipedia.org/wiki/Hathor\" target=\"_blank\" rel=\"noopener\">Hathor</a>"
   ],
   [
    "Nut",
    "Donna arcuata sopra la terra",
-   "Il cielo: ingoia e partorisce il Sole."
+   "Il cielo: ingoia e partorisce il Sole.",
+   "<a href=\"https://it.wikipedia.org/wiki/Nut_(mitologia)\" target=\"_blank\" rel=\"noopener\">Nut</a>"
   ],
   [
    "Ptah",
    "Mummia con scettro",
-   "Dio creatore di Memphis."
+   "Dio creatore di Memphis.",
+   "<a href=\"https://it.wikipedia.org/wiki/Ptah\" target=\"_blank\" rel=\"noopener\">Ptah</a>"
   ],
   [
    "Sobek",
    "Coccodrillo",
-   "Il Nilo e la sua forza."
+   "Il Nilo e la sua forza.",
+   "<a href=\"https://it.wikipedia.org/wiki/Sobek\" target=\"_blank\" rel=\"noopener\">Sobek</a>"
   ],
   [
    "Seshat",
    "Donna con stella sul capo",
-   "Misura e orientamento dei templi."
+   "Misura e orientamento dei templi.",
+   "<a href=\"https://it.wikipedia.org/wiki/Seshat\" target=\"_blank\" rel=\"noopener\">Seshat</a>"
   ]
  ],
  "cielo": [
   [
    "I punti cardinali",
-   "Le piramidi sono orientate a nord con un errore di pochi primi d'arco, ottenuto osservando le stelle."
+   "Le piramidi sono orientate a nord con un errore di pochi primi d'arco, ottenuto osservando le stelle.",
+   "<a href=\"https://it.wikipedia.org/wiki/Piramidi_egizie\" target=\"_blank\" rel=\"noopener\">Piramidi egizie</a>, <a href=\"https://it.wikipedia.org/wiki/Archeoastronomia\" target=\"_blank\" rel=\"noopener\">Archeoastronomia</a>"
   ],
   [
    "Le stelle imperiture",
-   "Le stelle vicine al polo non tramontano mai: erano la destinazione dell'anima del re."
+   "Le stelle vicine al polo non tramontano mai: erano la destinazione dell'anima del re.",
+   "<a href=\"https://it.wikipedia.org/wiki/Astro_circumpolare\" target=\"_blank\" rel=\"noopener\">Stelle circumpolari</a>, <a href=\"https://it.wikipedia.org/wiki/Testi_delle_piramidi\" target=\"_blank\" rel=\"noopener\">Testi delle piramidi</a>"
   ],
   [
    "Sirio e il calendario",
-   "La prima apparizione di Sirio all'alba, a metà luglio, annunciava la piena del Nilo e il capodanno. Da qui l'anno di 365 giorni."
+   "La prima apparizione di Sirio all'alba, a metà luglio, annunciava la piena del Nilo e il capodanno. Da qui l'anno di 365 giorni.",
+   "<a href=\"https://it.wikipedia.org/wiki/Sirio\" target=\"_blank\" rel=\"noopener\">Sirio</a>, <a href=\"https://it.wikipedia.org/wiki/Levata_eliaca\" target=\"_blank\" rel=\"noopener\">Levata eliaca</a>, <a href=\"https://it.wikipedia.org/wiki/Calendario_egizio\" target=\"_blank\" rel=\"noopener\">Calendario egizio</a>"
   ],
   [
    "I decani e le 24 ore",
-   "Trentasei gruppi di stelle scandivano la notte in dodici parti. La nostra giornata di 24 ore viene da lì."
+   "Trentasei gruppi di stelle scandivano la notte in dodici parti. La nostra giornata di 24 ore viene da lì.",
+   "<a href=\"https://it.wikipedia.org/wiki/Astronomia_egizia\" target=\"_blank\" rel=\"noopener\">Astronomia egizia</a>"
   ],
   [
    "Gli allineamenti solari",
-   "Molti templi puntano al sorgere del Sole nei solstizi o in date scelte."
+   "Molti templi puntano al sorgere del Sole nei solstizi o in date scelte.",
+   "<a href=\"https://it.wikipedia.org/wiki/Complesso_templare_di_Karnak\" target=\"_blank\" rel=\"noopener\">Karnak</a>, <a href=\"https://it.wikipedia.org/wiki/Abu_Simbel\" target=\"_blank\" rel=\"noopener\">Abu Simbel</a>"
   ]
  ],
  "glossario": [
   [
    "Mastaba",
-   "Tomba a forma di parallelepipedo basso, antenata della piramide."
+   "Tomba a forma di parallelepipedo basso, antenata della piramide.",
+   "<a href=\"https://it.wikipedia.org/wiki/Mastaba\" target=\"_blank\" rel=\"noopener\">Mastaba</a>"
   ],
   [
    "Pilone",
-   "Portale monumentale con due torri inclinate, facciata dei templi."
+   "Portale monumentale con due torri inclinate, facciata dei templi.",
+   "<a href=\"https://it.wikipedia.org/wiki/Pilone_(architettura_egizia)\" target=\"_blank\" rel=\"noopener\">Pilone</a>"
   ],
   [
    "Sala ipostila",
-   "Sala con il tetto retto da file di colonne."
+   "Sala con il tetto retto da file di colonne.",
+   "<a href=\"https://it.wikipedia.org/wiki/Ipostilo\" target=\"_blank\" rel=\"noopener\">Sala ipostila</a>"
   ],
   [
    "Obelisco",
-   "Monolite a punta, simbolo di un raggio di Sole."
+   "Monolite a punta, simbolo di un raggio di Sole.",
+   "<a href=\"https://it.wikipedia.org/wiki/Obelisco\" target=\"_blank\" rel=\"noopener\">Obelisco</a>"
   ],
   [
    "Cartiglio",
-   "Ovale che racchiude il nome del faraone nei geroglifici."
+   "Ovale che racchiude il nome del faraone nei geroglifici.",
+   "<a href=\"https://it.wikipedia.org/wiki/Cartiglio_(Antico_Egitto)\" target=\"_blank\" rel=\"noopener\">Cartiglio</a>"
   ],
   [
    "Nilometro",
-   "Pozzo o scala graduata per misurare la piena del Nilo."
+   "Pozzo o scala graduata per misurare la piena del Nilo.",
+   "<a href=\"https://it.wikipedia.org/wiki/Nilometro\" target=\"_blank\" rel=\"noopener\">Nilometro</a>"
   ],
   [
    "Levata eliaca",
-   "Primo giorno in cui una stella torna visibile all'alba."
+   "Primo giorno in cui una stella torna visibile all'alba.",
+   "<a href=\"https://it.wikipedia.org/wiki/Levata_eliaca\" target=\"_blank\" rel=\"noopener\">Levata eliaca</a>"
   ],
   [
    "Feluca",
-   "Barca a vela tradizionale del Nilo."
+   "Barca a vela tradizionale del Nilo.",
+   "<a href=\"https://it.wikipedia.org/wiki/Feluca_(imbarcazione)\" target=\"_blank\" rel=\"noopener\">Feluca</a>"
   ]
  ]
 };
