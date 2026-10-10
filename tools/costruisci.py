@@ -234,14 +234,14 @@ OUTFIT = {
  "palette_nota": "Con questi colori tutti i capi si abbinano, e rendono bene anche nelle foto fra templi, pietra dorata e deserto.",
  "priorita": [("Donna", "Due ottime camicie leggere a maniche lunghe, un pantalone tecnico traspirante, un cappello davvero protettivo e scarpe già rodate."),
               ("Uomo", "Due pantaloni tecnici davvero leggeri, due camicie a maniche lunghe protettive e un buon cappello.")],
- # come vestirsi per situazione: (titolo, indicazioni, [nomi delle foto in img/outfit-*.jpg])
+ # come vestirsi per situazione: (titolo, indicazioni, [foto uomo, foto donna] in img/outfit-*.jpg)
  "situazioni": [
-  ("Fra i templi, in pieno sole", "È la situazione di quasi tutti i giorni. Camicia o maglia a maniche lunghe, chiara e leggera (meglio se UPF 50+), pantaloni lunghi tecnici o di lino, cappello a tesa larga, occhiali da sole e scarpe chiuse con suola aderente. Niente cotone pesante.", ["s03", "s05", "s10"]),
-  ("In moschea e in città", "Spalle e ginocchia coperte per entrambi, quindi niente bermuda e canottiere; per le donne un foulard per i capelli. Scarpe facili da sfilare all'ingresso.", ["s02", "s09"]),
-  ("Nel deserto", "Pantaloni tecnici lunghi, camicia protettiva, scarpe da camminata con suola scolpita, cappello ben fissato e foulard antipolvere. Tessuti che non trattengono la sabbia. Niente bermuda, abiti svolazzanti, sandali o infradito.", ["s04", "s11", "s12", "i-0708"]),
+  ("Fra i templi, in pieno sole", "È la situazione di quasi tutti i giorni. Camicia o maglia a maniche lunghe, chiara e leggera (meglio se UPF 50+), pantaloni lunghi tecnici o di lino, cappello a tesa larga, occhiali da sole e scarpe chiuse con suola aderente. Niente cotone pesante.", ["s05", "d-templi"]),
+  ("In moschea e in città", "Spalle e ginocchia coperte per entrambi, quindi niente bermuda e canottiere; per le donne un foulard per i capelli. Scarpe facili da sfilare all'ingresso.", ["s02", "d-moschea"]),
+  ("Nel deserto", "Pantaloni tecnici lunghi, camicia protettiva, scarpe da camminata con suola scolpita, cappello ben fissato e foulard antipolvere. Tessuti che non trattengono la sabbia. Niente bermuda, abiti svolazzanti, sandali o infradito.", ["s12", "i-0708"]),
   ("In nave e la sera", "Camicia di lino o polo con un pantalone pulito; nelle ore di riposo bermuda e sandali comodi. Per le donne abito lungo leggero o pantalone morbido con blusa. Niente abiti da sera impegnativi.", ["s08", "i-0406"]),
-  ("In volo e nei trasferimenti", "Capi comodi che non stringono e non si sgualciscono, le scarpe chiuse ai piedi per risparmiare spazio e uno strato leggero a portata di mano per l'aria condizionata di aerei, bus e musei.", ["s01"]),
-  ("Il giorno dell'eclissi", "Il completo più protettivo che avete: si può restare fermi a lungo all'aperto con il Sole a picco. Nello zaino gli occhiali certificati e un piccolo asciugamano tecnico.", ["s06"]),
+  ("In volo e nei trasferimenti", "Capi comodi che non stringono e non si sgualciscono, le scarpe chiuse ai piedi per risparmiare spazio e uno strato leggero a portata di mano per l'aria condizionata di aerei, bus e musei.", ["s01", "d-volo"]),
+  ("Il giorno dell'eclissi", "Il completo più protettivo che avete: si può restare fermi a lungo all'aperto con il Sole a picco. Nello zaino gli occhiali certificati e un piccolo asciugamano tecnico.", ["s06", "d-eclissi"]),
  ],
  # liste con le spunte: (identificativo, titolo, [(gruppo, [voci])])
  "liste": [

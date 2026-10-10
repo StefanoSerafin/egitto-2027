@@ -188,7 +188,11 @@ document.addEventListener('DOMContentLoaded', function () {
       + voci(O.priorita, function (v) { return '<b>' + v[0] + '</b><span>' + v[1] + '</span>'; }) + '</section>'
       + '<section class="sezione"><h2>Come vestirsi</h2>' + O.situazioni.map(function (v) {
         return '<div class="situazione"><h3>' + v[0] + '</h3><p>' + v[1] + '</p><div class="look-riga">'
-          + v[2].filter(function (n) { return O.foto.indexOf(n) >= 0; }).map(function (n) { return '<img src="img/outfit-' + n + '.jpg" alt="" loading="lazy">'; }).join('')
+          + v[2].map(function (n, k) {
+            if (O.foto.indexOf(n) < 0) return '';
+            const chi = k === 0 ? 'Uomo' : 'Donna';
+            return '<figure><img src="img/outfit-' + n + '.jpg" alt="Esempio di abbigliamento, ' + chi.toLowerCase() + '" loading="lazy"><figcaption>' + chi + '</figcaption></figure>';
+          }).join('')
           + '</div></div>';
       }).join('') + '</section>';
     O.liste.forEach(function (l) {
