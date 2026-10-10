@@ -205,7 +205,8 @@ INFO = {
 }
 
 
-# ------------------------------------------------------------ Outfit (consigli raccolti da Stefano e Ilenia su ChatGPT, 9 ottobre 2026)
+# ------------------------------------------------------------ Outfit (consigli raccolti su ChatGPT, 9 ottobre 2026)
+# L'app è condivisa con i compagni di viaggio: niente nomi propri, solo «Donna» e «Uomo».
 OUTFIT = {
  "intro": "Una valigia essenziale: capi leggeri, traspiranti, lavabili e abbinabili fra loro. Conta più la protezione dal sole che la quantità di vestiti.",
  "regole": [
@@ -228,23 +229,23 @@ OUTFIT = {
   "Ombra e pause al fresco nelle ore centrali, per quanto lo permette il programma.",
   "Pasti leggeri e regolari, senza trascurare i sali.",
  ],
- "palette": [("Ilenia", "Avorio, sabbia, salvia e azzurro polvere. Abiti e pantaloni fluidi, camicie leggere."),
-             ("Stefano", "Sabbia, pietra, verde oliva e blu navy. Pantaloni tecnici, camicie e polo leggere.")],
+ "palette": [("Donna", "Avorio, sabbia, salvia e azzurro polvere. Abiti e pantaloni fluidi, camicie leggere."),
+             ("Uomo", "Sabbia, pietra, verde oliva e blu navy. Pantaloni tecnici, camicie e polo leggere.")],
  "palette_nota": "Con questi colori tutti i capi si abbinano, e rendono bene anche nelle foto fra templi, pietra dorata e deserto.",
- "priorita": [("Ilenia", "Due ottime camicie leggere a maniche lunghe, un pantalone tecnico traspirante, un cappello davvero protettivo e scarpe già rodate."),
-              ("Stefano", "Due pantaloni tecnici davvero leggeri, due camicie a maniche lunghe protettive e un buon cappello.")],
+ "priorita": [("Donna", "Due ottime camicie leggere a maniche lunghe, un pantalone tecnico traspirante, un cappello davvero protettivo e scarpe già rodate."),
+              ("Uomo", "Due pantaloni tecnici davvero leggeri, due camicie a maniche lunghe protettive e un buon cappello.")],
  # come vestirsi per situazione: (titolo, indicazioni, [nomi delle foto in img/outfit-*.jpg])
  "situazioni": [
   ("Fra i templi, in pieno sole", "È la situazione di quasi tutti i giorni. Camicia o maglia a maniche lunghe, chiara e leggera (meglio se UPF 50+), pantaloni lunghi tecnici o di lino, cappello a tesa larga, occhiali da sole e scarpe chiuse con suola aderente. Niente cotone pesante.", ["s03", "s05", "s10"]),
-  ("In moschea e in città", "Spalle e ginocchia coperte per entrambi, quindi niente bermuda e canottiere; per Ilenia un foulard per i capelli. Scarpe facili da sfilare all'ingresso.", ["s02", "s09"]),
+  ("In moschea e in città", "Spalle e ginocchia coperte per entrambi, quindi niente bermuda e canottiere; per le donne un foulard per i capelli. Scarpe facili da sfilare all'ingresso.", ["s02", "s09"]),
   ("Nel deserto", "Pantaloni tecnici lunghi, camicia protettiva, scarpe da camminata con suola scolpita, cappello ben fissato e foulard antipolvere. Tessuti che non trattengono la sabbia. Niente bermuda, abiti svolazzanti, sandali o infradito.", ["s04", "s11", "s12", "i-0708"]),
-  ("In nave e la sera", "Camicia di lino o polo con un pantalone pulito; nelle ore di riposo bermuda e sandali comodi. Per Ilenia abito lungo leggero o pantalone morbido con blusa. Niente abiti da sera impegnativi.", ["s08", "i-0406"]),
+  ("In nave e la sera", "Camicia di lino o polo con un pantalone pulito; nelle ore di riposo bermuda e sandali comodi. Per le donne abito lungo leggero o pantalone morbido con blusa. Niente abiti da sera impegnativi.", ["s08", "i-0406"]),
   ("In volo e nei trasferimenti", "Capi comodi che non stringono e non si sgualciscono, le scarpe chiuse ai piedi per risparmiare spazio e uno strato leggero a portata di mano per l'aria condizionata di aerei, bus e musei.", ["s01"]),
   ("Il giorno dell'eclissi", "Il completo più protettivo che avete: si può restare fermi a lungo all'aperto con il Sole a picco. Nello zaino gli occhiali certificati e un piccolo asciugamano tecnico.", ["s06"]),
  ],
  # liste con le spunte: (identificativo, titolo, [(gruppo, [voci])])
  "liste": [
-  ("ilenia", "La valigia di Ilenia", [
+  ("donna", "La valigia, donna", [
    ("Nel trolley", ["3 magliette tecniche leggere e traspiranti", "2 camicie ampie a manica lunga, in lino leggero o tessuto tecnico",
                     "1 blusa o maglietta a manica corta, più curata per la sera", "2 pantaloni lunghi leggeri, di cui almeno uno tecnico",
                     "1 pantalone morbido o gonna midi per crociera e cene", "1 abito leggero midi o maxi, per città e sera", "1 costume da bagno",
@@ -254,14 +255,18 @@ OUTFIT = {
    ("Scarpe e sole", ["Sandali comodi con suola stabile e cinturino posteriore", "Cappello a tesa larga, meglio con protezione per il collo",
                       "Foulard grande e leggero per moschee, polvere e sole", "Occhiali da sole UV400", "Burrocacao con protezione solare"]),
   ]),
-  ("stefano", "La mini-valigia di Stefano", [
-   ("Abiti", ["4 magliette tecniche: due chiare, due in colori neutri", "3 camicie leggere: due a manica lunga, una a manica corta", "2 polo traspiranti: una chiara e una blu",
-              "3 pantaloni lunghi: due tecnici, uno chino leggero", "1 bermuda per la nave e i momenti informali", "1 costume",
-              "7–8 cambi di intimo tecnico, ad asciugatura rapida", "5 paia di calze leggere, meglio tecniche", "1 pigiama leggerissimo",
-              "1 felpa sottile o camicia più consistente per l'aria condizionata"]),
-   ("Scarpe e sole", ["Scarpe da camminata, indossate in aereo", "Sandali comodi, nel bagaglio", "Cappello a tesa larga", "Foulard leggero", "Occhiali da sole"]),
+  # stessa struttura e stesse quantità della lista donna, con i capi equivalenti
+  ("uomo", "La valigia, uomo", [
+   ("Nel trolley", ["3 magliette tecniche leggere e traspiranti", "2 camicie a manica lunga, in lino leggero o tessuto tecnico",
+                    "1 polo o camicia a manica corta, più curata per la sera", "2 pantaloni lunghi leggeri, di cui almeno uno tecnico",
+                    "1 pantalone chino leggero per crociera e cene", "1 bermuda per la nave e i momenti informali", "1 costume da bagno",
+                    "7 cambi di intimo tecnico, ad asciugatura rapida", "4 paia di calze tecniche leggere", "1 pigiama estivo leggerissimo",
+                    "1 felpa ultraleggera o camicia più consistente per l'aria condizionata"]),
+   ("Indosso in viaggio", ["1 pantalone lungo comodo e leggero", "1 maglietta traspirante", "Scarpe da camminata chiuse, già collaudate", "1 paio di calze", "1 strato leggero per l'aereo"]),
+   ("Scarpe e sole", ["Sandali comodi con suola stabile e cinturino posteriore", "Cappello a tesa larga, meglio con protezione per il collo",
+                      "Foulard o scaldacollo leggero per polvere e sole", "Occhiali da sole UV400", "Burrocacao con protezione solare"]),
   ]),
-  ("comune", "Da dividere in due", [
+  ("comune", "In comune, da dividere con chi viaggia con te", [
    ("Igiene e salute", ["Spazzolino, dentifricio, deodorante e detergenti in formato viaggio", "Crema solare SPF 50+ per viso e corpo", "Repellente per insetti",
                         "Gel igienizzante e fazzoletti", "Salviette umidificate e una piccola scorta di carta igienica", "Cerotti normali e per vesciche",
                         "Farmaci personali nella confezione originale", "Kit sanitario concordato con medico o farmacista", "Bustine di sali reidratanti",

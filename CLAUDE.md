@@ -1,7 +1,7 @@
 # egitto-2027 (sito) — istruzioni per Claude Code
 
 ## Cos'è
-Web app per iPhone e iPad del viaggio in Egitto di Stefano e Ilenia (28 luglio – 10 agosto 2027 secondo
+Web app per iPhone e iPad del viaggio in Egitto (28 luglio – 10 agosto 2027 secondo
 le date pubblicate; il programma ha 13 giorni, rientro il 9 con arrivo forse il 10;
 SiVola con Luca Perri, eclissi totale del 2 agosto). Presenta le 13 giornate con schede dei
 luoghi, foto, grafici e link a Wikipedia, più mappa, basi culturali e informazioni pratiche.
@@ -50,6 +50,7 @@ Mai link che aprono un file (immagine, PDF) nella stessa finestra: nell'app a tu
   organizzati per situazione e NON per giorno (scelta di Stefano: «un giorno vale l'altro»):
   testi più le immagini `img/outfit-*.jpg`, ritagliate una volta dalle schermate (Stefano conferma che sono
   generate da ChatGPT e utilizzabili). Non hanno una sorgente nel progetto: non cancellarle da `img/`.
+- L'app è condivisa con i compagni di viaggio: nei contenuti niente nomi propri (in Outfit solo «Donna» e «Uomo»).
 - **Mai** mettere nel repo prezzi pagati, acconti, numeri di prenotazione, documenti, telefoni.
   Solo itinerario, schede culturali e informazioni già pubbliche sulla pagina SiVola.
 - Foto **solo** con licenza libera da Wikimedia Commons, elencate in `genera.py` (`FOTO`) e

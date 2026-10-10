@@ -419,22 +419,22 @@ const OUTFIT = {
  ],
  "palette": [
   [
-   "Ilenia",
+   "Donna",
    "Avorio, sabbia, salvia e azzurro polvere. Abiti e pantaloni fluidi, camicie leggere."
   ],
   [
-   "Stefano",
+   "Uomo",
    "Sabbia, pietra, verde oliva e blu navy. Pantaloni tecnici, camicie e polo leggere."
   ]
  ],
  "palette_nota": "Con questi colori tutti i capi si abbinano, e rendono bene anche nelle foto fra templi, pietra dorata e deserto.",
  "priorita": [
   [
-   "Ilenia",
+   "Donna",
    "Due ottime camicie leggere a maniche lunghe, un pantalone tecnico traspirante, un cappello davvero protettivo e scarpe già rodate."
   ],
   [
-   "Stefano",
+   "Uomo",
    "Due pantaloni tecnici davvero leggeri, due camicie a maniche lunghe protettive e un buon cappello."
   ]
  ],
@@ -450,7 +450,7 @@ const OUTFIT = {
   ],
   [
    "In moschea e in città",
-   "Spalle e ginocchia coperte per entrambi, quindi niente bermuda e canottiere; per Ilenia un foulard per i capelli. Scarpe facili da sfilare all'ingresso.",
+   "Spalle e ginocchia coperte per entrambi, quindi niente bermuda e canottiere; per le donne un foulard per i capelli. Scarpe facili da sfilare all'ingresso.",
    [
     "s02",
     "s09"
@@ -468,7 +468,7 @@ const OUTFIT = {
   ],
   [
    "In nave e la sera",
-   "Camicia di lino o polo con un pantalone pulito; nelle ore di riposo bermuda e sandali comodi. Per Ilenia abito lungo leggero o pantalone morbido con blusa. Niente abiti da sera impegnativi.",
+   "Camicia di lino o polo con un pantalone pulito; nelle ore di riposo bermuda e sandali comodi. Per le donne abito lungo leggero o pantalone morbido con blusa. Niente abiti da sera impegnativi.",
    [
     "s08",
     "i-0406"
@@ -491,8 +491,8 @@ const OUTFIT = {
  ],
  "liste": [
   [
-   "ilenia",
-   "La valigia di Ilenia",
+   "donna",
+   "La valigia, donna",
    [
     [
      "Nel trolley",
@@ -533,39 +533,50 @@ const OUTFIT = {
    ]
   ],
   [
-   "stefano",
-   "La mini-valigia di Stefano",
+   "uomo",
+   "La valigia, uomo",
    [
     [
-     "Abiti",
+     "Nel trolley",
      [
-      "4 magliette tecniche: due chiare, due in colori neutri",
-      "3 camicie leggere: due a manica lunga, una a manica corta",
-      "2 polo traspiranti: una chiara e una blu",
-      "3 pantaloni lunghi: due tecnici, uno chino leggero",
+      "3 magliette tecniche leggere e traspiranti",
+      "2 camicie a manica lunga, in lino leggero o tessuto tecnico",
+      "1 polo o camicia a manica corta, più curata per la sera",
+      "2 pantaloni lunghi leggeri, di cui almeno uno tecnico",
+      "1 pantalone chino leggero per crociera e cene",
       "1 bermuda per la nave e i momenti informali",
-      "1 costume",
-      "7–8 cambi di intimo tecnico, ad asciugatura rapida",
-      "5 paia di calze leggere, meglio tecniche",
-      "1 pigiama leggerissimo",
-      "1 felpa sottile o camicia più consistente per l'aria condizionata"
+      "1 costume da bagno",
+      "7 cambi di intimo tecnico, ad asciugatura rapida",
+      "4 paia di calze tecniche leggere",
+      "1 pigiama estivo leggerissimo",
+      "1 felpa ultraleggera o camicia più consistente per l'aria condizionata"
+     ]
+    ],
+    [
+     "Indosso in viaggio",
+     [
+      "1 pantalone lungo comodo e leggero",
+      "1 maglietta traspirante",
+      "Scarpe da camminata chiuse, già collaudate",
+      "1 paio di calze",
+      "1 strato leggero per l'aereo"
      ]
     ],
     [
      "Scarpe e sole",
      [
-      "Scarpe da camminata, indossate in aereo",
-      "Sandali comodi, nel bagaglio",
-      "Cappello a tesa larga",
-      "Foulard leggero",
-      "Occhiali da sole"
+      "Sandali comodi con suola stabile e cinturino posteriore",
+      "Cappello a tesa larga, meglio con protezione per il collo",
+      "Foulard o scaldacollo leggero per polvere e sole",
+      "Occhiali da sole UV400",
+      "Burrocacao con protezione solare"
      ]
     ]
    ]
   ],
   [
    "comune",
-   "Da dividere in due",
+   "In comune, da dividere con chi viaggia con te",
    [
     [
      "Igiene e salute",
@@ -611,8 +622,8 @@ const OUTFIT = {
  "foto": [
   "i-0406",
   "i-0708",
-  "palette-ilenia",
-  "palette-stefano",
+  "palette-donna",
+  "palette-uomo",
   "s01",
   "s02",
   "s03",
