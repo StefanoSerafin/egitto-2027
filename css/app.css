@@ -10,7 +10,7 @@ a { color: var(--tinta); }
   padding-bottom: env(safe-area-inset-bottom);
 }
 .schede a {
-  flex: 1; text-align: center; padding: 16px 2px 14px; font-size: 15px;
+  flex: 1; text-align: center; padding: 16px 1px 14px; font-size: 14px;
   color: var(--tenue); text-decoration: none;
 }
 .schede a.attiva { color: var(--tinta); font-weight: 600; box-shadow: inset 0 3px 0 var(--accento); }
@@ -128,3 +128,13 @@ button.indietro { font: inherit; font-size: 16px; font-weight: 600; background: 
 .tempo-scheda .tempo-dove, .tempo-scheda .wiki-riga { font-size: 14px; color: var(--tenue); }
 .tempo-scheda .wiki-riga a { text-decoration: underline; text-underline-offset: 2px; }
 @media (min-width: 700px) { .tempo-riga { margin: 0; padding-left: 0; padding-right: 0; } }
+
+/* salute: colonne «sì» e «no» */
+.sino { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.sino > div { padding: 12px 12px 6px; background: var(--tinta-chiaro); border-top: 6px solid #2F6B3F; }
+.sino > div.no { border-top-color: #9A3B1E; }
+.sino h3 { margin: 0 0 6px; font-family: var(--display); font-weight: 400; font-size: 24px; color: #2F6B3F; }
+.sino .no h3 { color: #9A3B1E; }
+.sino .elenco-semplice { font-size: 15px; }
+.sezione .elenco-semplice li { margin-bottom: 7px; }
+@media (max-width: 380px) { .sino { grid-template-columns: 1fr; } }

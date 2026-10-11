@@ -203,6 +203,23 @@ document.addEventListener('DOMContentLoaded', function () {
     return h;
   }
 
+  function vistaSalute() {
+    const S = SALUTE;
+    let h = '<header><h1>Salute</h1><p class="filo">' + S.intro + '</p></header>';
+    S.sezioni.forEach(function (z) {
+      h += '<section class="sezione"><h2>' + z.titolo + '</h2>';
+      if (z.si) {
+        h += '<div class="sino"><div class="si"><h3>Sì</h3>' + ul(z.si) + '</div><div class="no"><h3>No</h3>' + ul(z.no) + '</div></div>';
+      }
+      if (z.punti) h += ul(z.punti);
+      h += '</section>';
+    });
+    h += '<section class="sezione"><p class="nota">' + S.nota + '</p><h3>Fonti</h3><ul class="elenco-semplice">'
+      + S.fonti.map(function (f) { return '<li><a class="esterno" href="' + f[1] + '" target="_blank" rel="noopener">' + f[0] + '</a> (in inglese)</li>'; }).join('')
+      + '</ul><p class="fonte">Fonti lette l\'' + S.data + '. Per la lista completa di cosa portare vedi anche <a href="#/outfit">Outfit</a>.</p></section>';
+    return h;
+  }
+
   function vistaInfo() {
     return '<header><h1>Info</h1><p class="filo">Dove si dorme, cosa è compreso e cosa resta da chiarire.</p></header>'
       + '<section class="sezione"><h2>Le notti</h2>' + voci(INFO.notti, function (v) { return '<b>' + v[0] + '</b><em>' + v[1] + '</em><span>' + v[2] + '</span>'; }) + '</section>'
@@ -234,6 +251,7 @@ document.addEventListener('DOMContentLoaded', function () {
     else if (r === '/mappa') { scheda = 'mappa'; vista.className = 'pagina piena'; vista.innerHTML = vistaMappa(); }
     else if (r === '/basi') { scheda = 'basi'; vista.innerHTML = vistaBasi(); }
     else if (r === '/outfit') { scheda = 'outfit'; vista.innerHTML = vistaOutfit(); }
+    else if (r === '/salute') { scheda = 'salute'; vista.innerHTML = vistaSalute(); }
     else if (r === '/info') { scheda = 'info'; vista.innerHTML = vistaInfo(); }
     else if (r === '/crediti') { scheda = 'info'; vista.innerHTML = vistaCrediti(); }
     else vista.innerHTML = vistaGiorni();

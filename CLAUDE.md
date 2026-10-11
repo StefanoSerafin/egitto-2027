@@ -29,7 +29,7 @@ Wikipedia e Wikidata, non scrive testi a mano). Va rilanciato dopo `costruisci.p
 cambiano link. Le immagini non sono nel repo: l'app le carica da Wikimedia quando c'è la rete.
 
 ## File scritti a mano
-- `index.html` — ossatura e barra delle schede (Giorni, Mappa, Basi, Outfit, Info).
+- `index.html` — ossatura e barra delle schede (Giorni, Mappa, Basi, Outfit, Salute, Info).
 - `css/app.css` — solo le parti dell'app (schede, elenco giorni, mappa, liste).
 - `js/app.js` — router e viste. La tavolozza del giorno si applica impostando le variabili CSS.
 - `js/mappa.js` — `EgittoMappa`: Leaflet da unpkg (unica eccezione no-CDN, come Copenaghen),
@@ -50,6 +50,9 @@ Mai link che aprono un file (immagine, PDF) nella stessa finestra: nell'app a tu
   organizzati per situazione e NON per giorno (scelta di Stefano: «un giorno vale l'altro»):
   testi più le immagini `img/outfit-*.jpg`, ritagliate una volta dalle schermate (Stefano conferma che sono
   generate da ChatGPT e utilizzabili). Non hanno una sorgente nel progetto: non cancellarle da `img/`.
+- La scheda Salute (`SALUTE` in `costruisci.py`) riassume le indicazioni del CDC sui disturbi gastrointestinali
+  (fonti linkate in fondo alla scheda). Regola: solo indicazioni generali, niente dosi né scelte di farmaci,
+  e ogni affermazione nuova va appoggiata a una fonte sanitaria ufficiale.
 - L'app è condivisa con i compagni di viaggio: nei contenuti niente nomi propri (in Outfit solo «Donna» e «Uomo»).
 - **Mai** mettere nel repo prezzi pagati, acconti, numeri di prenotazione, documenti, telefoni.
   Solo itinerario, schede culturali e informazioni già pubbliche sulla pagina SiVola.

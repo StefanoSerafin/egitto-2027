@@ -283,6 +283,58 @@ OUTFIT = {
 }
 
 
+# ------------------------------------------------------------ Salute: disturbi gastrointestinali
+# Fonti: pagine CDC per i viaggiatori (diarrea del viaggiatore, cibo e acqua sicuri, Egitto) e CDC Yellow Book, lette l'11 ottobre 2026.
+# Sono indicazioni generali: niente dosi di farmaci, che si decidono col medico.
+SALUTE = {
+ "intro": "I disturbi intestinali sono il guaio più comune di chi viaggia: secondo la destinazione colpiscono da 3 a 7 viaggiatori su 10 in due settimane. Negli adulti sani sono quasi sempre fastidiosi e non pericolosi, e buona parte si evita con poche abitudini.",
+ "sezioni": [
+  {"titolo": "Prima di partire", "punti": [
+    "Una visita dal medico o in un centro di medicina dei viaggi almeno un mese prima: è lì che si decidono vaccini e farmaci da portare.",
+    "Per l'Egitto le autorità sanitarie statunitensi raccomandano la vaccinazione contro l'epatite A e, per la maggior parte dei viaggiatori, contro il tifo: entrambe si trasmettono con cibo e acqua. Da valutare col medico.",
+    "Farmaci: chiedete al medico quale antidiarroico portare, quando usarlo e se darvi un antibiotico di scorta per i casi seri.",
+    "Fermenti lattici: SiVola li consiglia, ma le prove che prevengano la diarrea sono insufficienti. Portarli non fa danni, però non sostituiscono le regole qui sotto."]},
+  {"titolo": "Acqua e bevande",
+   "si": ["Acqua e bibite in bottiglia o lattina sigillata: controllate che il tappo sia intatto", "Bevande gassate: le bollicine dicono che la bottiglia non è stata riempita di nuovo", "Tè e caffè serviti bollenti", "Acqua in bottiglia anche per lavarsi i denti"],
+   "no": ["Acqua del rubinetto, anche in hotel e in nave", "Ghiaccio nelle bevande", "Succhi e spremute preparati da altri", "Bibite alla spina", "Latte e panna lasciati in brocche aperte", "Acqua in bocca sotto la doccia"]},
+  {"titolo": "Cibo",
+   "si": ["Piatti cotti e serviti ben caldi", "Cibi secchi o confezionati: pane, cracker, biscotti", "Frutta che sbucciate voi: banane, arance, mango", "Al buffet, le portate appena arrivate dalla cucina"],
+   "no": ["Piatti tiepidi o rimasti a lungo sul buffet", "Insalate e verdure crude", "Frutta già tagliata", "Carne e pesce crudi o poco cotti", "Salse fresche e condimenti a crudo", "Latte, formaggi e yogurt non pastorizzati", "Cibo di strada, a meno che sia cotto davanti a voi e bollente"]},
+  {"titolo": "Mani", "punti": [
+    "Acqua e sapone prima di mangiare e dopo il bagno.",
+    "Quando il sapone non c'è, gel con almeno il 60% di alcol: tenetelo nello zaino, non nel trolley.",
+    "Mani lontane dalla bocca, soprattutto dopo aver toccato banconote, corrimano e maniglie."]},
+  {"titolo": "In questo viaggio", "punti": [
+    "In nave e in hotel si mangia quasi sempre a buffet: è lì che conta scegliere i piatti caldi e lasciare le insalate.",
+    "Niente bagni nel Nilo, nel Lago Qarun o nei laghi di Wadi El Rayan: in Egitto l'acqua dolce non trattata può trasmettere la schistosomiasi. La piscina clorata della nave non pone questo problema.",
+    "Con oltre 40 gradi si perde molta acqua anche senza diarrea: bere spesso e mangiare qualcosa di salato durante le visite.",
+    "Al bazaar e nei mercati il tè caldo va bene; spremute, frullati e ghiaccio no."]},
+  {"titolo": "Se succede", "punti": [
+    "Bere molto è la cura principale. Se le scariche sono tante, una soluzione reidratante: una bustina sciolta in acqua in bottiglia, secondo le istruzioni.",
+    "Evitare le bevande molto zuccherate, che possono peggiorare la diarrea.",
+    "Se il disturbo è lieve e non vi ferma, basta reidratarsi. L'antidiarroico concordato col medico aiuta nei giorni di bus o di volo.",
+    "L'antidiarroico non si prende da solo se c'è febbre o sangue nelle feci.",
+    "L'antibiotico serve solo nei casi più seri e va preso come ha indicato il medico.",
+    "Quanto dura: di solito 2 o 3 giorni se la causa è un virus, da 3 a 7 se è un batterio.",
+    "Avvisate subito il coordinatore: può organizzare una farmacia, un medico o un giorno di riposo in nave."]},
+  {"titolo": "Quando serve un medico", "punti": [
+    "Febbre insieme alla diarrea.", "Sangue nelle feci.",
+    "Vomito che non permette di bere.",
+    "Segni di disidratazione: sete intensa, poca urina e scura, capogiri.",
+    "Nessun miglioramento dopo qualche giorno, oppure diarrea che compare o continua dopo il rientro.",
+    "Prima degli altri: chi ha malattie croniche, difese immunitarie basse, è in gravidanza o è anziano."]},
+  {"titolo": "Nello zaino", "punti": [
+    "Gel per le mani", "Bustine di sali reidratanti", "Antidiarroico e gli altri farmaci concordati col medico", "Termometro", "Salviette e una piccola scorta di carta igienica", "I contatti della polizza sanitaria compresa nella quota"]},
+ ],
+ "nota": "Sono indicazioni generali per adulti sani, non un parere medico: vaccini e farmaci si decidono con il proprio medico.",
+ "fonti": [("CDC, diarrea del viaggiatore", "https://wwwnc.cdc.gov/travel/page/travelers-diarrhea"),
+           ("CDC, cibo e acqua sicuri", "https://wwwnc.cdc.gov/travel/page/food-water-safety"),
+           ("CDC, salute dei viaggiatori in Egitto", "https://wwwnc.cdc.gov/travel/destinations/traveler/none/egypt"),
+           ("CDC Yellow Book, travelers' diarrhea", "https://www.cdc.gov/yellow-book/hcp/preparing-international-travelers/travelers-diarrhea.html")],
+ "data": "11 ottobre 2026",
+}
+
+
 # ------------------------------------------------------------ esportazione
 def esporta_giorno(g, crediti):
     righe = []
@@ -354,7 +406,7 @@ def main():
     OUTFIT["foto"] = sorted(f[len("outfit-"):-4] for f in os.listdir(os.path.join(SITO, "img")) if f.startswith("outfit-"))
     giorni = [esporta_giorno(g, crediti) for g in [GIORNO_1, GIORNO_2] + G.GIORNI + [GIORNO_13]]
     open(os.path.join(SITO, "data", "giorni.js"), "w", encoding="utf-8").write(js("PAL_BASE", G.SABBIA) + js("GIORNI", giorni))
-    open(os.path.join(SITO, "data", "extra.js"), "w", encoding="utf-8").write(js("BASI", basi_con_wiki()) + js("INFO", INFO) + js("OUTFIT", OUTFIT) + js("CREDITI", crediti))
+    open(os.path.join(SITO, "data", "extra.js"), "w", encoding="utf-8").write(js("BASI", basi_con_wiki()) + js("INFO", INFO) + js("OUTFIT", OUTFIT) + js("SALUTE", SALUTE) + js("CREDITI", crediti))
     open(os.path.join(SITO, "css", "giorno.css"), "w", encoding="utf-8").write(
         "/* Generato da tools/costruisci.py a partire da infografiche/genera.py: non modificare a mano. */\n" + G.CSS % G.SABBIA)
     file = ["./", "index.html", "manifest.json", "icona-180.png", "css/giorno.css", "css/app.css", "js/app.js", "js/mappa.js",
